@@ -80,6 +80,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/victor/Desktop/master/c++/encryption_3des/Sequence.cpp">
+			<Option target="encryption_3des"/>
+		</Unit>
+		<Unit filename="/Users/victor/Desktop/master/c++/encryption_3des/Sequence.h">
+			<Option target="encryption_3des"/>
+		</Unit>
 		<Unit filename="/Users/victor/Desktop/master/c++/encryption_3des/main.cpp">
 			<Option target="encryption_3des"/>
 		</Unit>
