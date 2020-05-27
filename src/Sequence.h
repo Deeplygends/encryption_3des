@@ -6,8 +6,20 @@
 #define ENCRYPTION_3DES_SEQUENCE_H
 
 
-class Sequence {
+#include <list>
+#include <deque>
+#include <string>
 
+using namespace std;
+
+class Sequence {
+private:
+    deque<string> sequence;
+
+public:
+    explicit Sequence(int tailleSequence = 4);
+
+    explicit Sequence(list<Sequence> listeSequences);
 };
 
 

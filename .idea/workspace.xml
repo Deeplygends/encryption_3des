@@ -31,7 +31,8 @@
   <component name="ChangeListManager">
     <list default="true" id="703baf3a-33c5-4bfb-8591-4714ff54ccb6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Sequence.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sequence.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Sequence.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sequence.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +42,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -56,6 +58,11 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="A:\Documents\Dodo\M2\S2\Cpp\projet\encryption_3des\src" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="encryption_3des" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="encryption_3des" TARGET_NAME="encryption_3des" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="encryption_3des" RUN_TARGET_NAME="encryption_3des">
@@ -78,6 +85,7 @@
       <workItem from="1587894348340" duration="231000" />
       <workItem from="1590605704893" duration="207000" />
       <workItem from="1590605985119" duration="23000" />
+      <workItem from="1590606069887" duration="2493000" />
     </task>
     <servers />
   </component>
@@ -101,6 +109,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1587894400503" />
+    <state x="1085" y="416" key="#com.intellij.ide.util.MemberChooser" timestamp="1590608700712">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1085" y="416" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1590608700712" />
     <state width="1398" height="245" key="GridCell.Tab.0.bottom" timestamp="1587894211648">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
