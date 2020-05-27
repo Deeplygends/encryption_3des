@@ -1,1 +1,1 @@
-/Library/Developer/CommandLineTools/usr/bin/c++  -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/encryption_3des.dir/main.cpp.o CMakeFiles/encryption_3des.dir/Sequence.cpp.o  -o encryption_3des 
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/encryption_3des.dir/main.cpp.o CMakeFiles/encryption_3des.dir/Sequence.cpp.o  -o encryption_3des.exe -Wl,--out-implib,libencryption_3des.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
