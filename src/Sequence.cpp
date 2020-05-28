@@ -35,3 +35,11 @@ void Sequence::decalage(const int shift) {
 Sequence &Sequence::operator*(const Sequence &seq) {
     // return XOR on two sequences
 }
+
+Sequence Sequence::permutation(const vector<string>& v) {
+    // return Sequence created from permutation
+}
+
+Sequence Sequence::sous_sequence(int debut, int fin) {
+    // return Sequence created as subsequence of Sequence from <debut>th bit to <fin>th bit
+}

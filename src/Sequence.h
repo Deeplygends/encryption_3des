@@ -9,6 +9,7 @@
 #include <list>
 #include <deque>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -32,6 +33,10 @@ public:
     void decalage(int shift);
 
     Sequence &operator*(const Sequence &seq);
+
+    Sequence permutation(const vector<string> &v);
+
+    Sequence sous_sequence(int debut, int fin);
 };
 
 
