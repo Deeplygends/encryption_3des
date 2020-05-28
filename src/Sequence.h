@@ -27,7 +27,11 @@ public:
 
     double size();
 
-    void operator=(int entier);
+    Sequence &operator=(int entier);
+
+    void decalage(int shift);
+
+    Sequence &operator*(const Sequence &seq);
 };
 
 

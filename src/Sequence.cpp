@@ -13,17 +13,25 @@ Sequence::Sequence(const list<Sequence> &listeSequences) {
 }
 
 string &Sequence::operator[](const int index) {
-    // return modifiable "index"th bit of the sequence
+    // return modifiable <index>th bit of the sequence
 }
 
 string &Sequence::operator()(const int index) {
-    // return unmodifiable "index"th bit of the sequence
+    // return unmodifiable <index>th bit of the sequence
 }
 
 double Sequence::size() {
     // return number of bits in sequence
 }
 
-void Sequence::operator=(const int entier) {
-    // affect binary value of "entier" to Sequence skipping bits in excess
+Sequence & Sequence::operator=(int entier) {
+    // affect binary value of <entier> to Sequence skipping bits in excess
+}
+
+void Sequence::decalage(const int shift) {
+    // shift <shift> left bits to the right of the Sequence
+}
+
+Sequence &Sequence::operator*(const Sequence &seq) {
+    // return XOR on two sequences
 }
