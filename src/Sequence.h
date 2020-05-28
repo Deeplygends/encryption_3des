@@ -1,30 +1,25 @@
-//
-// Created by Victor on 25/04/2020.
-//
-
 #ifndef ENCRYPTION_3DES_SEQUENCE_H
 #define ENCRYPTION_3DES_SEQUENCE_H
 
 
 #include <list>
 #include <deque>
-#include <string>
 #include <vector>
 
 using namespace std;
 
 class Sequence {
 private:
-    deque<string> sequence;
+    deque<unsigned int> sequence;
 
 public:
     explicit Sequence(int tailleSequence = 4);
 
     explicit Sequence(const list<Sequence> &listeSequences);
 
-    string &operator[](int index);
+    unsigned int &operator[](int index);
 
-    string &operator()(int index);
+    unsigned int &operator()(int index);
 
     double size();
 
@@ -34,7 +29,7 @@ public:
 
     Sequence &operator*(const Sequence &seq);
 
-    Sequence permutation(const vector<string> &v);
+    Sequence permutation(const vector<unsigned int> &v);
 
     Sequence sous_sequence(int debut, int fin);
 };
