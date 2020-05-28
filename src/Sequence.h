@@ -19,11 +19,15 @@ private:
 public:
     explicit Sequence(int tailleSequence = 4);
 
-    explicit Sequence(list<Sequence> listeSequences);
+    explicit Sequence(const list<Sequence> &listeSequences);
 
     string &operator[](int index);
 
     string &operator()(int index);
+
+    double size();
+
+    void operator=(int entier);
 };
 
 
