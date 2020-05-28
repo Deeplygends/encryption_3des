@@ -31,6 +31,14 @@
   <component name="ChangeListManager">
     <list default="true" id="703baf3a-33c5-4bfb-8591-4714ff54ccb6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/encryption_3des.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/encryption_3des.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/encryption_3des.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/encryption_3des.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/encryption_3des.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/encryption_3des.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/encryption_3des.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/encryption_3des.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/encryption_3des.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/encryption_3des.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Sequence.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sequence.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Sequence.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sequence.h" afterDir="false" />
     </list>
@@ -85,7 +93,8 @@
       <workItem from="1587894348340" duration="231000" />
       <workItem from="1590605704893" duration="207000" />
       <workItem from="1590605985119" duration="23000" />
-      <workItem from="1590606069887" duration="2493000" />
+      <workItem from="1590606069887" duration="2952000" />
+      <workItem from="1590692865571" duration="909000" />
     </task>
     <servers />
   </component>

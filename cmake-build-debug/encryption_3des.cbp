@@ -80,13 +80,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/cygdrive/a/Documents/Dodo/M2/S2/Cpp/projet/encryption_3des/Sequence.cpp">
-			<Option target="encryption_3des"/>
-		</Unit>
-		<Unit filename="/cygdrive/a/Documents/Dodo/M2/S2/Cpp/projet/encryption_3des/Sequence.h">
-			<Option target="encryption_3des"/>
-		</Unit>
 		<Unit filename="/cygdrive/a/Documents/Dodo/M2/S2/Cpp/projet/encryption_3des/main.cpp">
+			<Option target="encryption_3des"/>
+		</Unit>
+		<Unit filename="/cygdrive/a/Documents/Dodo/M2/S2/Cpp/projet/encryption_3des/src/Sequence.cpp">
+			<Option target="encryption_3des"/>
+		</Unit>
+		<Unit filename="/cygdrive/a/Documents/Dodo/M2/S2/Cpp/projet/encryption_3des/src/Sequence.h">
 			<Option target="encryption_3des"/>
 		</Unit>
 		<Unit filename="/cygdrive/a/Documents/Dodo/M2/S2/Cpp/projet/encryption_3des/CMakeLists.txt">

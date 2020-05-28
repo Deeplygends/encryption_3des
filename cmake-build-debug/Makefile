@@ -123,33 +123,6 @@ encryption_3des/fast:
 	$(MAKE) -f CMakeFiles/encryption_3des.dir/build.make CMakeFiles/encryption_3des.dir/build
 .PHONY : encryption_3des/fast
 
-Sequence.o: Sequence.cpp.o
-
-.PHONY : Sequence.o
-
-# target to build an object file
-Sequence.cpp.o:
-	$(MAKE) -f CMakeFiles/encryption_3des.dir/build.make CMakeFiles/encryption_3des.dir/Sequence.cpp.o
-.PHONY : Sequence.cpp.o
-
-Sequence.i: Sequence.cpp.i
-
-.PHONY : Sequence.i
-
-# target to preprocess a source file
-Sequence.cpp.i:
-	$(MAKE) -f CMakeFiles/encryption_3des.dir/build.make CMakeFiles/encryption_3des.dir/Sequence.cpp.i
-.PHONY : Sequence.cpp.i
-
-Sequence.s: Sequence.cpp.s
-
-.PHONY : Sequence.s
-
-# target to generate assembly for a file
-Sequence.cpp.s:
-	$(MAKE) -f CMakeFiles/encryption_3des.dir/build.make CMakeFiles/encryption_3des.dir/Sequence.cpp.s
-.PHONY : Sequence.cpp.s
-
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -177,6 +150,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/encryption_3des.dir/build.make CMakeFiles/encryption_3des.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/Sequence.o: src/Sequence.cpp.o
+
+.PHONY : src/Sequence.o
+
+# target to build an object file
+src/Sequence.cpp.o:
+	$(MAKE) -f CMakeFiles/encryption_3des.dir/build.make CMakeFiles/encryption_3des.dir/src/Sequence.cpp.o
+.PHONY : src/Sequence.cpp.o
+
+src/Sequence.i: src/Sequence.cpp.i
+
+.PHONY : src/Sequence.i
+
+# target to preprocess a source file
+src/Sequence.cpp.i:
+	$(MAKE) -f CMakeFiles/encryption_3des.dir/build.make CMakeFiles/encryption_3des.dir/src/Sequence.cpp.i
+.PHONY : src/Sequence.cpp.i
+
+src/Sequence.s: src/Sequence.cpp.s
+
+.PHONY : src/Sequence.s
+
+# target to generate assembly for a file
+src/Sequence.cpp.s:
+	$(MAKE) -f CMakeFiles/encryption_3des.dir/build.make CMakeFiles/encryption_3des.dir/src/Sequence.cpp.s
+.PHONY : src/Sequence.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -186,12 +186,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... encryption_3des"
 	@echo "... edit_cache"
-	@echo "... Sequence.o"
-	@echo "... Sequence.i"
-	@echo "... Sequence.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... src/Sequence.o"
+	@echo "... src/Sequence.i"
+	@echo "... src/Sequence.s"
 .PHONY : help
 
 

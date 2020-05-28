@@ -20,6 +20,10 @@ public:
     explicit Sequence(int tailleSequence = 4);
 
     explicit Sequence(list<Sequence> listeSequences);
+
+    string &operator[](int index);
+
+    string &operator()(int index);
 };
 
 

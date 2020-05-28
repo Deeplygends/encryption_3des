@@ -11,3 +11,11 @@ Sequence::Sequence(int tailleSequence) {
 Sequence::Sequence(std::list<Sequence> listeSequences) {
     // concatenation of list of sequences
 }
+
+string &Sequence::operator[](int index){
+    // return modifiable "index"th bit of the sequence
+}
+
+string &Sequence::operator()(int index){
+    // return unmodifiable "index"th bit of the sequence
+}
