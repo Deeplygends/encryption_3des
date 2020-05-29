@@ -177,6 +177,33 @@ src/Sequence.cpp.s:
 	$(MAKE) -f CMakeFiles/encryption_3des.dir/build.make CMakeFiles/encryption_3des.dir/src/Sequence.cpp.s
 .PHONY : src/Sequence.cpp.s
 
+src/SequenceD.o: src/SequenceD.cpp.o
+
+.PHONY : src/SequenceD.o
+
+# target to build an object file
+src/SequenceD.cpp.o:
+	$(MAKE) -f CMakeFiles/encryption_3des.dir/build.make CMakeFiles/encryption_3des.dir/src/SequenceD.cpp.o
+.PHONY : src/SequenceD.cpp.o
+
+src/SequenceD.i: src/SequenceD.cpp.i
+
+.PHONY : src/SequenceD.i
+
+# target to preprocess a source file
+src/SequenceD.cpp.i:
+	$(MAKE) -f CMakeFiles/encryption_3des.dir/build.make CMakeFiles/encryption_3des.dir/src/SequenceD.cpp.i
+.PHONY : src/SequenceD.cpp.i
+
+src/SequenceD.s: src/SequenceD.cpp.s
+
+.PHONY : src/SequenceD.s
+
+# target to generate assembly for a file
+src/SequenceD.cpp.s:
+	$(MAKE) -f CMakeFiles/encryption_3des.dir/build.make CMakeFiles/encryption_3des.dir/src/SequenceD.cpp.s
+.PHONY : src/SequenceD.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -192,6 +219,9 @@ help:
 	@echo "... src/Sequence.o"
 	@echo "... src/Sequence.i"
 	@echo "... src/Sequence.s"
+	@echo "... src/SequenceD.o"
+	@echo "... src/SequenceD.i"
+	@echo "... src/SequenceD.s"
 .PHONY : help
 
 

@@ -30,9 +30,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="703baf3a-33c5-4bfb-8591-4714ff54ccb6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/SequenceD.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SequenceD.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sequence.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sequence.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sequence.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sequence.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/encryption_3des.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/encryption_3des.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/encryption_3des.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/encryption_3des.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/encryption_3des.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/encryption_3des.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/encryption_3des.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/encryption_3des.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/encryption_3des.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/encryption_3des.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/encryption_3des.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/encryption_3des.cbp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +96,8 @@
       <workItem from="1590605704893" duration="207000" />
       <workItem from="1590605985119" duration="23000" />
       <workItem from="1590606069887" duration="2952000" />
-      <workItem from="1590692865571" duration="2926000" />
+      <workItem from="1590692865571" duration="3151000" />
+      <workItem from="1590769798276" duration="2429000" />
     </task>
     <servers />
   </component>
