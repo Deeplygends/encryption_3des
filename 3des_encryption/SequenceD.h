@@ -127,8 +127,8 @@ ostream& operator<<(ostream& os, SequenceD<Size> seq) {
 		Sequence seq8bits = seq.left().sous_sequence(i * 8, i * 8 + 7);
 		string byteString = seq8bits.stringify();
 		bitset<8> byte;
-		for (int j = 0; j < 8; j++)
-			byte[j] = seq8bits(j);
+		for (int j = 7; j > -1; j--)
+			byte[j] = seq8bits(7-j);
 		char c = static_cast<char>(byte.to_ulong());
 		s += c;
 	}
@@ -136,8 +136,8 @@ ostream& operator<<(ostream& os, SequenceD<Size> seq) {
 		Sequence seq8bits = seq.right().sous_sequence(i * 8, i * 8 + 7);
 		string byteString = seq8bits.stringify();
 		bitset<8> byte;
-		for (int j = 0; j < 8; j++)
-			byte[j] = seq8bits(j);
+		for (int j = 7; j > -1; j--)
+			byte[j] = seq8bits(7 - j);
 		char c = static_cast<char>(byte.to_ulong());
 		s += c;
 	}
@@ -150,28 +150,26 @@ template<int Size>
 istream& operator>>(istream& in, SequenceD<Size> &seq) {
 	if (Size != 64)
 		return in;
-	for (int i = 0; i < 8; i++)
+	for (int i = 0; i < 64; i += 8)
 	{
 		char c;
 		in >> c;
 		bitset<8> set = bitset<8>(c);
-        int x;
         string array = set.to_string().c_str();
-        int l = array.length();
-        char ch[l];
-        for(int j = 0; j<l; j++){
-            ch[j] = array[j];
-            seq[i*j] = ch[j] - '0';
-            cout << seq(i*j);
-        }
-
+		int j = 0;
+		for(char ele : array)
+		{
+			seq[i + j] = ele - '0';
+			j++;
+		}
 		/*
 		cout << "POUR LA LETTRE " << c << " :";
 		cout << "index i : "<< i << " " << bitset<8>(c) << " done" << endl;
 		*/
 	}
+	
     seq.to_string();
-    cout << endl;
+    //cout << endl;
 	return in;
 	
 }

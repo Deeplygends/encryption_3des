@@ -70,7 +70,7 @@ static void testSequenceD() {
 	cout << seq.size();
 	seq.right().to_string();
 	seq.left().to_string();
-	seq.decalage(3);
+	seq.d	ecalage(3);
 	seq.to_string();
 	seq = seq * seq2;
 	seq.to_string();
@@ -79,9 +79,8 @@ static void testSequenceD() {
 
 	affichage(seq);
     affichage(seqD);*/
-    seqD.to_string();
-    istringstream("JEANVALJ") >> seqD;
-    seqD.to_string();
+    cin >> seqD;
+	cout << seqD;
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
