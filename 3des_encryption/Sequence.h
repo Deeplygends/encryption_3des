@@ -28,11 +28,13 @@ public:
 
     void decalage(int shift);
 
-    //Sequence& operator*(const Sequence& seq);
+    void to_string();
+
+    Sequence& operator*(Sequence& seq);
 
     //Sequence permutation(const vector<int>& v);
 
-    //Sequence sous_sequence(int debut, int fin);
+    Sequence sous_sequence(int debut, int fin);
 };
 
 
