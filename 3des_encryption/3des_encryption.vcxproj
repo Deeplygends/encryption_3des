@@ -149,10 +149,12 @@
   <ItemGroup>
     <ClCompile Include="3des_encryption.cpp" />
     <ClCompile Include="helper.cpp" />
+    <ClCompile Include="Permutation.cpp" />
     <ClCompile Include="Sequence.cpp" />
     <ClCompile Include="SequenceD.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Permutation.h" />
     <ClInclude Include="Sequence.h" />
     <ClInclude Include="SequenceD.h" />
   </ItemGroup>

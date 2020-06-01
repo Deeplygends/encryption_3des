@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Sequence.h"
 #include "SequenceD.h"
+#include "helper.cpp";
 
 using namespace std;
 static void testSequence();
@@ -81,6 +82,7 @@ static void testSequenceD() {
     affichage(seqD);*/
     cin >> seqD;
 	cout << seqD;
+	write(cout, seqD);
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage

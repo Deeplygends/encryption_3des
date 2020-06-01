@@ -17,7 +17,7 @@ public:
 
 	SequenceD(Sequence seq1, Sequence seq2);
 
-	void to_string();
+	
 
 	int& operator[](int index);
 
@@ -33,12 +33,12 @@ public:
 
 	Sequence& left();
 
-	template<int>
 	friend ostream& operator<<(ostream&, SequenceD<64>);
 	
 	friend istream& operator>>(ostream&, SequenceD<64>&);
-
+	
 	void affichage();
+
 
 private:
 	Sequence l_;
@@ -55,18 +55,6 @@ template<int Size>
 SequenceD<Size>::SequenceD(Sequence seq1, Sequence seq2) {
 	l_ = seq1;
 	r_ = seq2;
-}
-
-template<int Size>
-void SequenceD<Size>::to_string()
-{
-	cout << "SequenceD : ";
-	for (int i = 0; i < Size / 2; i++)
-		cout << l_[i];
-	cout << " ";
-	for (int i = Size / 2; i < Size; i++)
-		cout << r_[i - Size / 2];
-	cout << endl;
 }
 
 template<int Size>
@@ -111,11 +99,28 @@ Sequence& SequenceD<Size>::left() {
 }
 
 template<int Size>
+ostream& write(ostream& os, SequenceD<64> seq) 
+{
+	return os;
+}
+
+template<int Size>
 SequenceD<Size>& SequenceD<Size>::operator*(SequenceD<Size>& seq) {
 	// return XOR on two sequences
 	l_ = l_ * seq.left();
 	r_ = r_ * seq.right();
 	return *this;
+}
+
+template<int Size>
+ostream& write(ostream& os, SequenceD<Size> seq)
+{
+	for (int i = 0; i < Size; i++)
+	{
+		os << seq(i);
+		if (i % 7 == 0) os << " ";
+	}
+	return os;
 }
 
 template<int Size>
@@ -168,8 +173,6 @@ istream& operator>>(istream& in, SequenceD<Size> &seq) {
 		*/
 	}
 	
-    seq.to_string();
-    //cout << endl;
 	return in;
 	
 }
