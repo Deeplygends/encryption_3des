@@ -148,6 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="3des_encryption.cpp" />
+    <ClCompile Include="helper.cpp" />
     <ClCompile Include="Sequence.cpp" />
     <ClCompile Include="SequenceD.cpp" />
   </ItemGroup>

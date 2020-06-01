@@ -3,13 +3,18 @@
 
 #include <iostream>
 #include "Sequence.h"
+#include "SequenceD.h"
 
 using namespace std;
 static void testSequence();
+static void testSequenceD();
+
+
+
 
 int main()
 {
-	testSequence();
+	testSequenceD();
 }
 
 static void testSequence()
@@ -22,37 +27,54 @@ static void testSequence()
 	Sequence sequ3 = Sequence(list);
 
 	cout << "Sequence before editing : ";
-	sequ.to_string();
-	sequ2.to_string();
+	sequ.into_string();
+	sequ2.into_string();
 	sequ[0] = 1;
 	sequ[1] = 0;
 	cout << "Sequence after editing the 2 first digit : ";
-	sequ.to_string();
+	sequ.into_string();
 
 	cout << "Sequence from list of sequence : ";
-	sequ3.to_string();
+	sequ3.into_string();
 
 	cout << "Shift the sequence of 2 digits : ";
 	sequ3.decalage(2);
-	sequ3.to_string();
+	sequ3.into_string();
 
 	cout << "XOR between 2 sequence" << endl;
-	sequ.to_string();
-	sequ2.to_string();
-	Sequence sequ4 = sequ*sequ2;
-	sequ4.to_string();
+	sequ.into_string();
+	sequ2.into_string();
+	Sequence sequ4 = sequ * sequ2;
+	sequ4.into_string();
 
 	cout << "Sous sequence start 1 end 3";
-	sequ.to_string();
+	sequ.into_string();
 	Sequence sequ5 = sequ.sous_sequence(1, 3);
-	sequ5.to_string();
+	sequ5.into_string();
 
 
 	cout << "Permutation of sequence (size 5) with vector (5 , 3 , 1 , 4 , 2 )";
-	sequ.to_string();
+	sequ.into_string();
 	vector<int> vect = { 5, 3 , 1 , 4 , 2 };
 	Sequence sequ6 = sequ.permutation(vect);
-	sequ6.to_string();
+	sequ6.into_string();
+}
+
+static void testSequenceD() {
+	SequenceD<64> seq = SequenceD<64>();
+	/*SequenceD<8> seq2 = SequenceD<8>();
+
+	
+	seq2.to_string();
+	cout << seq.size();
+	seq.right().to_string();
+	seq.left().to_string();
+	seq.decalage(3);
+	seq.to_string();
+	seq = seq * seq2;
+	seq.to_string();*/
+	seq.to_string();
+	cout << seq;
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage

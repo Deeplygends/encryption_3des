@@ -11,30 +11,30 @@ using namespace std;
 
 class Sequence {
 private:
-    deque<int> sequence;
+	deque<int> sequence_;
 
 public:
-    Sequence(int tailleSequence = 4);
+	Sequence(int tailleSequence = 4);
 
-    Sequence(list<Sequence>& listeSequences);
+	Sequence(list<Sequence>& listeSequences);
 
-    int& operator[](int index);
+	int& operator[](int index);
 
-    int& operator()(int index);
+	const int operator()(int index);
 
-    double size();
+	double size();
 
-    Sequence& operator=(int entier);
+	Sequence& operator=(int entier);
 
-    void decalage(int shift);
+	void decalage(int shift);
 
-    void to_string();
+	string into_string();
 
-    Sequence& operator*(Sequence& seq);
+	Sequence& operator*(Sequence& seq);
 
-    Sequence permutation(vector<int>& v);
+	Sequence permutation(vector<int>& v);
 
-    Sequence sous_sequence(int debut, int fin);
+	Sequence sous_sequence(int debut, int fin);
 };
 
 
