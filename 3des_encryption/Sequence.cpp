@@ -83,13 +83,21 @@ Sequence& Sequence::operator*(Sequence& seq) {
 
     return *this;
 }
-/*
-Sequence Sequence::permutation(const vector<int>& v) {
+
+Sequence Sequence::permutation(vector<int>& v) {
     // return Sequence created from permutation
+    Sequence sequ = Sequence(size());
+    for(int i = 0; i < size(); i++)
+    {
+        sequ[i] = sequence[v[i]-1];
+    }
+    return sequ;
 }
-*/
+
 Sequence Sequence::sous_sequence(int debut, int fin) {
     Sequence sequ = Sequence(fin - debut + 1);
+    if (debut < 0 || fin >= size())
+        return sequ;
     int position = 0;
 	while(debut <= fin)
 	{

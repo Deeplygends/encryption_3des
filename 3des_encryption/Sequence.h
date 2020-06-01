@@ -32,7 +32,7 @@ public:
 
     Sequence& operator*(Sequence& seq);
 
-    //Sequence permutation(const vector<int>& v);
+    Sequence permutation(vector<int>& v);
 
     Sequence sous_sequence(int debut, int fin);
 };

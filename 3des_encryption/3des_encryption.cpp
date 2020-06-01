@@ -23,6 +23,7 @@ static void testSequence()
 
 	cout << "Sequence before editing : ";
 	sequ.to_string();
+	sequ2.to_string();
 	sequ[0] = 1;
 	sequ[1] = 0;
 	cout << "Sequence after editing the 2 first digit : ";
@@ -45,6 +46,13 @@ static void testSequence()
 	sequ.to_string();
 	Sequence sequ5 = sequ.sous_sequence(1, 3);
 	sequ5.to_string();
+
+
+	cout << "Permutation of sequence (size 5) with vector (5 , 3 , 1 , 4 , 2 )";
+	sequ.to_string();
+	vector<int> vect = { 5, 3 , 1 , 4 , 2 };
+	Sequence sequ6 = sequ.permutation(vect);
+	sequ6.to_string();
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
