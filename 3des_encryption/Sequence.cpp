@@ -3,6 +3,7 @@
 #include <iostream>
 
 Sequence::Sequence(int tailleSequence) {
+	srand(time(NULL) * clock());
 	for (int i = 0; i < tailleSequence; i++)
 		sequence_.push_back(rand() % 2);
 	// random bit sequence generator of size <tailleSequence>
@@ -19,7 +20,7 @@ Sequence::Sequence(list<Sequence>& listeSequences) {
 	}
 }
 
-string Sequence::into_string()
+string Sequence::stringify()
 {
 	string s = "";
 	for (int i = 0; i < size(); i++)

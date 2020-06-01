@@ -6,6 +6,7 @@
 #include <list>
 #include <deque>
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -28,7 +29,7 @@ public:
 
 	void decalage(int shift);
 
-	string into_string();
+	string stringify();
 
 	Sequence& operator*(Sequence& seq);
 

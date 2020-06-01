@@ -33,7 +33,9 @@ public:
 	Sequence& left();
 
 	template<int Size>
-	friend ostream& operator<<(ostream&, const SequenceD<64>);
+	friend ostream& operator<<(ostream&, SequenceD<64>);
+	
+	friend istream& operator>>(ostream&, SequenceD<64>&);
 
 private:
 	Sequence l_;
@@ -67,10 +69,12 @@ void SequenceD<Size>::to_string()
 template<int Size>
 int& SequenceD<Size>::operator[](int index) {
 	// return modifiable <index>th bit of the sequence
+	cout << index;
+	cout << " " << Size / 2 << endl;
 	if (index < Size / 2)
 		return l_[index];
 	else
-		return r_[index];
+		return r_[index-Size/2];
 	//TODO: gestion exception
 }
 
@@ -79,8 +83,7 @@ const int SequenceD<Size>::operator()(const int index) {
 	// return unmodifiable <index>th bit of the sequence
 	if (index < Size / 2)
 		return l_(index);
-	else
-		return r_(index);
+	return r_(index-Size/2);
 	//TODO: gestion exception
 }
 
@@ -118,25 +121,42 @@ template<int Size>
 ostream& operator<<(ostream& os, SequenceD<Size> seq) {
 	if (Size != 64)
 		return os;
+	string s = "";
 	for (int i = 0; i < 4; i++) {
 		Sequence seq8bits = seq.left().sous_sequence(i * 8, i * 8 + 7);
-
-		string byteString = seq8bits.into_string();
-		stringstream sstream(byteString);
-		while (sstream.good()) {
-			bitset<8> byte;
-			sstream >> byte;
-			cout << byte;
-			char c = static_cast<char>(byte.to_ulong());
-			os << c;
-		}
-
-
+		string byteString = seq8bits.stringify();
+		bitset<8> byte;
+		for (int j = 0; j < 8; j++)
+			byte[j] = seq8bits(j);
+		char c = static_cast<char>(byte.to_ulong());
+		s += c;
 	}
-	/*for (int i = 0; i < 4; i++) {
-		os << seq.right().sous_sequence(i * 8, i * 8 + 7);
-	}*/
+	for (int i = 0; i < 4; i++) {
+		Sequence seq8bits = seq.right().sous_sequence(i * 8, i * 8 + 7);
+		string byteString = seq8bits.stringify();
+		bitset<8> byte;
+		for (int j = 0; j < 8; j++)
+			byte[j] = seq8bits(j);
+		char c = static_cast<char>(byte.to_ulong());
+		s += c;
+	}
+
+	os << s;
 	return os;
 }
 
+template<int Size>
+istream& operator>>(istream& in, SequenceD<Size> &seq) {
+	if (Size != 64)
+		return in;
+	cout << seq.size() << endl;
+	for (int i = 0; i < 8; i++)
+	{
+		char c;
+		in >> c;
+		cout << "index i : "<< i << " " << seq(i) << " done" << endl;
+	}
+	return in;
+	
+}
 #endif //ENCRYPTION_3DES_SEQUENCED_H

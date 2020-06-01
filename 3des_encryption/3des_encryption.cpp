@@ -27,37 +27,37 @@ static void testSequence()
 	Sequence sequ3 = Sequence(list);
 
 	cout << "Sequence before editing : ";
-	sequ.into_string();
-	sequ2.into_string();
+	sequ.stringify();
+	sequ2.stringify();
 	sequ[0] = 1;
 	sequ[1] = 0;
 	cout << "Sequence after editing the 2 first digit : ";
-	sequ.into_string();
+	sequ.stringify();
 
 	cout << "Sequence from list of sequence : ";
-	sequ3.into_string();
+	sequ3.stringify();
 
 	cout << "Shift the sequence of 2 digits : ";
 	sequ3.decalage(2);
-	sequ3.into_string();
+	sequ3.stringify();
 
 	cout << "XOR between 2 sequence" << endl;
-	sequ.into_string();
-	sequ2.into_string();
+	sequ.stringify();
+	sequ2.stringify();
 	Sequence sequ4 = sequ * sequ2;
-	sequ4.into_string();
+	sequ4.stringify();
 
 	cout << "Sous sequence start 1 end 3";
-	sequ.into_string();
+	sequ.stringify();
 	Sequence sequ5 = sequ.sous_sequence(1, 3);
-	sequ5.into_string();
+	sequ5.stringify();
 
 
 	cout << "Permutation of sequence (size 5) with vector (5 , 3 , 1 , 4 , 2 )";
-	sequ.into_string();
+	sequ.stringify();
 	vector<int> vect = { 5, 3 , 1 , 4 , 2 };
 	Sequence sequ6 = sequ.permutation(vect);
-	sequ6.into_string();
+	sequ6.stringify();
 }
 
 static void testSequenceD() {
@@ -75,6 +75,8 @@ static void testSequenceD() {
 	seq.to_string();*/
 	seq.to_string();
 	cout << seq;
+	istringstream("JEANVALJ") >> seq;
+	seq.to_string();
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
