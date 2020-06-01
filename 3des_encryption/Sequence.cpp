@@ -26,7 +26,7 @@ string Sequence::stringify()
 	for (int i = 0; i < size(); i++)
 		s += sequence_[i] + '0';
 
-	cout << s << endl; 
+	cout << s << endl;
 	return s;
 }
 

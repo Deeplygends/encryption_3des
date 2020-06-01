@@ -17,8 +17,6 @@ public:
 
 	SequenceD(Sequence seq1, Sequence seq2);
 
-	
-
 	int& operator[](int index);
 
 	const int operator()(int index);
@@ -34,11 +32,10 @@ public:
 	Sequence& left();
 
 	friend ostream& operator<<(ostream&, SequenceD<64>);
-	
-	friend istream& operator>>(ostream&, SequenceD<64>&);
-	
-	void affichage();
 
+	friend istream& operator>>(ostream&, SequenceD<64>&);
+
+	void affichage();
 
 private:
 	Sequence l_;
@@ -63,7 +60,7 @@ int& SequenceD<Size>::operator[](int index) {
 	if (index < Size / 2)
 		return l_[index];
 	else
-		return r_[index-Size/2];
+		return r_[index - Size / 2];
 	//TODO: gestion exception
 }
 
@@ -72,7 +69,7 @@ const int SequenceD<Size>::operator()(const int index) {
 	// return unmodifiable <index>th bit of the sequence
 	if (index < Size / 2)
 		return l_(index);
-	return r_(index-Size/2);
+	return r_(index - Size / 2);
 	//TODO: gestion exception
 }
 
@@ -99,7 +96,7 @@ Sequence& SequenceD<Size>::left() {
 }
 
 template<int Size>
-ostream& write(ostream& os, SequenceD<64> seq) 
+ostream& write(ostream& os, SequenceD<64> seq)
 {
 	return os;
 }
@@ -133,7 +130,7 @@ ostream& operator<<(ostream& os, SequenceD<Size> seq) {
 		string byteString = seq8bits.stringify();
 		bitset<8> byte;
 		for (int j = 7; j > -1; j--)
-			byte[j] = seq8bits(7-j);
+			byte[j] = seq8bits(7 - j);
 		char c = static_cast<char>(byte.to_ulong());
 		s += c;
 	}
@@ -152,7 +149,7 @@ ostream& operator<<(ostream& os, SequenceD<Size> seq) {
 }
 
 template<int Size>
-istream& operator>>(istream& in, SequenceD<Size> &seq) {
+istream& operator>>(istream& in, SequenceD<Size>& seq) {
 	if (Size != 64)
 		return in;
 	for (int i = 0; i < 64; i += 8)
@@ -160,9 +157,9 @@ istream& operator>>(istream& in, SequenceD<Size> &seq) {
 		char c;
 		in >> c;
 		bitset<8> set = bitset<8>(c);
-        string array = set.to_string().c_str();
+		string array = set.to_string().c_str();
 		int j = 0;
-		for(char ele : array)
+		for (char ele : array)
 		{
 			seq[i + j] = ele - '0';
 			j++;
@@ -172,19 +169,18 @@ istream& operator>>(istream& in, SequenceD<Size> &seq) {
 		cout << "index i : "<< i << " " << bitset<8>(c) << " done" << endl;
 		*/
 	}
-	
+
 	return in;
-	
 }
 
 template<typename T>
 void affichage(T seq)
 {
-    int size = seq.size();
-    cout << "Affichage de la séquence : ";
-    for(int i=0; i<size; i++){
-        cout << seq(i);
-    }
-    cout << endl;
+	int size = seq.size();
+	cout << "Affichage de la séquence : ";
+	for (int i = 0; i < size; i++) {
+		cout << seq(i);
+	}
+	cout << endl;
 }
 #endif //ENCRYPTION_3DES_SEQUENCED_H

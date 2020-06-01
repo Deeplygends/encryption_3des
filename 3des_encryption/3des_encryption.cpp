@@ -66,7 +66,7 @@ static void testSequenceD() {
 	Sequence seq = Sequence();
 	/*SequenceD<8> seq2 = SequenceD<8>();
 
-	
+
 	seq2.to_string();
 	cout << seq.size();
 	seq.right().to_string();
@@ -79,8 +79,8 @@ static void testSequenceD() {
 
 
 	affichage(seq);
-    affichage(seqD);*/
-    cin >> seqD;
+	affichage(seqD);*/
+	cin >> seqD;
 	cout << seqD;
 	write(cout, seqD);
 }
