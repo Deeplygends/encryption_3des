@@ -7,6 +7,7 @@
 #include <string>
 #include <sstream>
 #include <bitset>
+#include <cstdlib>
 using namespace std;
 
 template<int Size = 4>
@@ -32,10 +33,12 @@ public:
 
 	Sequence& left();
 
-	template<int Size>
+	template<int>
 	friend ostream& operator<<(ostream&, SequenceD<64>);
 	
 	friend istream& operator>>(ostream&, SequenceD<64>&);
+
+	void affichage();
 
 private:
 	Sequence l_;
@@ -69,8 +72,6 @@ void SequenceD<Size>::to_string()
 template<int Size>
 int& SequenceD<Size>::operator[](int index) {
 	// return modifiable <index>th bit of the sequence
-	cout << index;
-	cout << " " << Size / 2 << endl;
 	if (index < Size / 2)
 		return l_[index];
 	else
@@ -149,14 +150,40 @@ template<int Size>
 istream& operator>>(istream& in, SequenceD<Size> &seq) {
 	if (Size != 64)
 		return in;
-	cout << seq.size() << endl;
 	for (int i = 0; i < 8; i++)
 	{
 		char c;
 		in >> c;
-		cout << "index i : "<< i << " " << seq(i) << " done" << endl;
+		bitset<8> set = bitset<8>(c);
+        int x;
+        string array = set.to_string().c_str();
+        int l = array.length();
+        char ch[l];
+        for(int j = 0; j<l; j++){
+            ch[j] = array[j];
+            seq[i*j] = ch[j] - '0';
+            cout << seq(i*j);
+        }
+
+		/*
+		cout << "POUR LA LETTRE " << c << " :";
+		cout << "index i : "<< i << " " << bitset<8>(c) << " done" << endl;
+		*/
 	}
+    seq.to_string();
+    cout << endl;
 	return in;
 	
+}
+
+template<typename T>
+void affichage(T seq)
+{
+    int size = seq.size();
+    cout << "Affichage de la séquence : ";
+    for(int i=0; i<size; i++){
+        cout << seq(i);
+    }
+    cout << endl;
 }
 #endif //ENCRYPTION_3DES_SEQUENCED_H

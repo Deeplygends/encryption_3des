@@ -61,7 +61,8 @@ static void testSequence()
 }
 
 static void testSequenceD() {
-	SequenceD<64> seq = SequenceD<64>();
+	SequenceD<64> seqD = SequenceD<64>();
+	Sequence seq = Sequence();
 	/*SequenceD<8> seq2 = SequenceD<8>();
 
 	
@@ -72,11 +73,15 @@ static void testSequenceD() {
 	seq.decalage(3);
 	seq.to_string();
 	seq = seq * seq2;
-	seq.to_string();*/
 	seq.to_string();
 	cout << seq;
-	istringstream("JEANVALJ") >> seq;
-	seq.to_string();
+
+
+	affichage(seq);
+    affichage(seqD);*/
+    seqD.to_string();
+    istringstream("JEANVALJ") >> seqD;
+    seqD.to_string();
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
