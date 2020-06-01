@@ -1,42 +1,70 @@
 #include "Sequence.h"
-
+#include <time.h>
 
 Sequence::Sequence(int tailleSequence) {
+    srand(time(NULL));
+    for (int i = 0; i < tailleSequence; i++)
+        sequence.push_back(rand() % 2);
     // random bit sequence generator of size <tailleSequence>
 }
 
-Sequence::Sequence(const list<Sequence>& listeSequences) {
-    // concatenation of list of sequences
+Sequence::Sequence(list<Sequence>& listeSequences) {
+    
+	for (Sequence& seq : listeSequences)
+    {
+        for (int i = 0; i < seq.size(); i++)
+        {
+            sequence.push_back(seq[i]);
+        }
+    }
 }
 
-unsigned int& Sequence::operator[](const int index) {
+int& Sequence::operator[](int index) {
     // return modifiable <index>th bit of the sequence
+    return sequence[index];
 }
 
-unsigned int& Sequence::operator()(const int index) {
+int& Sequence::operator()(const int index) {
     // return unmodifiable <index>th bit of the sequence
+    return sequence.at(index);
 }
 
 double Sequence::size() {
-    // return number of bits in sequence
+    return sequence.size();
 }
 
 Sequence& Sequence::operator=(int entier) {
-    // affect binary value of <entier> to Sequence skipping bits in excess
+    int position = 0;
+    deque<int> binary;
+    do
+    {
+        binary.push_front(entier % 2);
+        entier /= 2;
+    } while (entier != 0);
+
+    while (binary.size() != 0 && position < size())
+    {
+        sequence[position] = binary.front();
+        binary.pop_front();
+        position++;
+    }
+
+    return *this;
 }
 
 void Sequence::decalage(const int shift) {
     // shift <shift> left bits to the right of the Sequence
 }
 
-Sequence& Sequence::operator*(const Sequence& seq) {
+/*Sequence& Sequence::operator*(const Sequence& seq) {
     // return XOR on two sequences
+  
 }
 
-Sequence Sequence::permutation(const vector<unsigned int>& v) {
+Sequence Sequence::permutation(const vector<int>& v) {
     // return Sequence created from permutation
 }
 
 Sequence Sequence::sous_sequence(int debut, int fin) {
     // return Sequence created as subsequence of Sequence from <debut>th bit to <fin>th bit
-}
+}*/

@@ -2,10 +2,15 @@
 //
 
 #include <iostream>
+#include "Sequence.h"
+
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    Sequence sequ = Sequence(5);
+	for (int i = 0; i < sequ.size(); i++)
+		cout << sequ[i];
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
