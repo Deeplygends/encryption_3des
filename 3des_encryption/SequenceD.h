@@ -98,12 +98,6 @@ Sequence& SequenceD<Size>::left() {
 }
 
 template<int Size>
-ostream& write(ostream& os, SequenceD<64> seq)
-{
-	return os;
-}
-
-template<int Size>
 SequenceD<Size>& SequenceD<Size>::operator*(SequenceD<Size>& seq) {
 	// return XOR on two sequences
 	l_ = l_ * seq.left();
@@ -114,10 +108,13 @@ SequenceD<Size>& SequenceD<Size>::operator*(SequenceD<Size>& seq) {
 template<int Size>
 ostream& write(ostream& os, SequenceD<Size> seq)
 {
+	if (Size != 64)
+		return os;
+	os << endl;
 	for (int i = 0; i < Size; i++)
 	{
 		os << seq(i);
-		if (i % 7 == 0) os << " ";
+		if ((i+1) % 8 == 0) os << " ";
 	}
 	return os;
 }
