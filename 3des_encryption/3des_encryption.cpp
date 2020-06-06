@@ -91,6 +91,11 @@ static void testSequenceD() {
 	cout << "WRITE : " << endl;
 	write(cout, seqD);
 
+	cout << "AFFICHAGE seqD :" << endl;
+	affichage(seqD);
+
+	cout << "AFFICHAGE seq :" << endl;
+	affichage(seq);
 
 }
 

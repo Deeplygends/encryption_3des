@@ -129,7 +129,7 @@ ostream& operator<<(ostream& os, SequenceD<Size> seq) {
 		s += c;
 	}
 
-	os << s;
+	os << s << endl;
 	return os;
 }
 
@@ -169,6 +169,7 @@ ostream& write(ostream& os, SequenceD<Size> seq)
 		os << seq(i);
 		if ((i + 1) % 8 == 0) os << " ";
 	}
+	os << endl;
 	return os;
 }
 
@@ -190,9 +191,10 @@ template<typename T>
 void affichage(T seq)
 {
 	int size = seq.size();
-	cout << "Affichage de la séquence : ";
+	cout << "Affichage de la sequence : ";
 	for (int i = 0; i < size; i++) {
 		cout << seq(i);
+		if ((i + 1) % 8 == 0) cout << " ";
 	}
 	cout << endl;
 }
