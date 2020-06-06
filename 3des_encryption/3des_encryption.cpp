@@ -79,10 +79,19 @@ static void testSequenceD() {
 
 
 	affichage(seq);
-	affichage(seqD);*/
+	affichage(seqD);
+
 	cin >> seqD;
 	cout << seqD;
 	write(cout, seqD);
+
+	string jeanvalj = "0100101001000101010000010100111001010110010000010100110001001010";*/
+
+	read(cin, seqD);
+	cout << "WRITE : " << endl;
+	write(cout, seqD);
+
+
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage

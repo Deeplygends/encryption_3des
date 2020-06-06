@@ -106,20 +106,6 @@ SequenceD<Size>& SequenceD<Size>::operator*(SequenceD<Size>& seq) {
 }
 
 template<int Size>
-ostream& write(ostream& os, SequenceD<Size> seq)
-{
-	if (Size != 64)
-		return os;
-	os << endl;
-	for (int i = 0; i < Size; i++)
-	{
-		os << seq(i);
-		if ((i+1) % 8 == 0) os << " ";
-	}
-	return os;
-}
-
-template<int Size>
 ostream& operator<<(ostream& os, SequenceD<Size> seq) {
 	if (Size != 64)
 		return os;
@@ -148,13 +134,13 @@ ostream& operator<<(ostream& os, SequenceD<Size> seq) {
 }
 
 template<int Size>
-istream& operator>>(istream& in, SequenceD<Size>& seq) {
+istream& operator>>(istream& is, SequenceD<Size>& seq) {
 	if (Size != 64)
-		return in;
+		return is;
 	for (int i = 0; i < 64; i += 8)
 	{
 		char c;
-		in >> c;
+		is >> c;
 		bitset<8> set = bitset<8>(c);
 		string array = set.to_string().c_str();
 		int j = 0;
@@ -169,7 +155,35 @@ istream& operator>>(istream& in, SequenceD<Size>& seq) {
 		*/
 	}
 
-	return in;
+	return is;
+}
+
+template<int Size>
+ostream& write(ostream& os, SequenceD<Size> seq)
+{
+	if (Size != 64)
+		return os;
+	os << endl;
+	for (int i = 0; i < Size; i++)
+	{
+		os << seq(i);
+		if ((i + 1) % 8 == 0) os << " ";
+	}
+	return os;
+}
+
+template<int Size>
+istream& read(istream& is, SequenceD<Size>& seq)
+{
+	if (Size != 64)
+		return is;
+	char c;
+	for (int i = 0; i < 64; i++) {
+		is >> c;
+		seq[i] = c - '0';
+	}
+
+	return is;
 }
 
 template<typename T>
