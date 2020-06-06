@@ -31,8 +31,10 @@ public:
 
 	Sequence& left();
 
+	template<int Size>
 	friend ostream& operator<<(ostream&, SequenceD<64>);
 
+	template<int Size>
 	friend istream& operator>>(ostream&, SequenceD<64>&);
 
 	void affichage();

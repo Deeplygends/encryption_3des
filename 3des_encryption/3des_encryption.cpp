@@ -4,7 +4,7 @@
 #include <iostream>
 #include "Sequence.h"
 #include "SequenceD.h"
-#include "helper.cpp";
+#include "helper.cpp"
 
 using namespace std;
 static void testSequence();
