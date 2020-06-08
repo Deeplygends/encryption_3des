@@ -72,7 +72,7 @@ static void testSequenceD() {
 	cout << seq.size();
 	seq.right().to_string();
 	seq.left().to_string();
-	seq.d	ecalage(3);
+	seq.decalage(3);
 	seq.to_string();
 	seq = seq * seq2;
 	seq.to_string();
@@ -100,12 +100,13 @@ static void testSequenceD() {
 
 	//test Permutation
 	cout << endl << "Test Permutation :" << endl;
-	vector<int> v{ 4,2,0,3,1 };
-	Permutation<4, 5> p;
+	vector<int> v{ 4,2,0,5,3,1 };
+	Permutation<4, 6> p;
 	SequenceD<4> seqD4 = SequenceD<4>();
-	SequenceD<5> seqD5 = p(seqD4, v);
+	affichage(seqD4);
+	SequenceD<6> seqD6 = p(seqD4, v);
 
-	//affichage(seqD5);
+	affichage(seqD6);
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
