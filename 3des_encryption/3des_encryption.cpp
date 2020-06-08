@@ -100,12 +100,12 @@ static void testSequenceD() {
 
 	//test Permutation
 	cout << endl << "Test Permutation :" << endl;
-	vector<int> v{ 2,0,3,1 };
-	Permutation<4, 4> p;
+	vector<int> v{ 4,2,0,3,1 };
+	Permutation<4, 5> p;
 	SequenceD<4> seqD4 = SequenceD<4>();
-	SequenceD<4> seqD5 = p(seqD4, v);
+	SequenceD<5> seqD5 = p(seqD4, v);
 
-	affichage(seqD5);
+	//affichage(seqD5);
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
