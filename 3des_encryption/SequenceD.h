@@ -191,7 +191,6 @@ template<typename T>
 void affichage(T seq)
 {
 	int size = seq.size();
-	cout << "Affichage de la sequence : ";
 	for (int i = 0; i < size; i++) {
 		cout << seq(i);
 		if ((i + 1) % 8 == 0) cout << " ";

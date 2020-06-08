@@ -6,6 +6,7 @@
 #include "SequenceD.h"
 #include "helper.cpp"
 #include "Permutation.h"
+#include "KeyGen.h"
 
 using namespace std;
 static void testSequence();
@@ -102,11 +103,39 @@ static void testSequenceD() {
 	cout << endl << "Test Permutation :" << endl;
 	vector<int> v{ 4,2,0,5,3,1 };
 	Permutation<4, 6> p;
-	SequenceD<4> seqD4 = SequenceD<4>();
-	affichage(seqD4);
-	SequenceD<6> seqD6 = p(seqD4, v);
+	vector<int> v2{ 1,3,2,0 };
+	Permutation<6, 4> p2;
+	vector<int> v3{ 0,2,1,3 };
+	Permutation<4, 4> p3;
 
+	SequenceD<4> seqD4 = SequenceD<4>();
+	cout << endl << "Test Permutation :" << endl;
+	cout << "Affichage SequenceD<4> :" << endl;
+	affichage(seqD4);
+
+	SequenceD<6> seqD6 = p(seqD4, v);
+	cout << "Affichage permutation vers SequenceD<6> :" << endl;
 	affichage(seqD6);
+
+	seqD4 = p2(seqD6, v2);
+	cout << "Affichage permutation2 vers SequenceD<4> :" << endl;
+	affichage(seqD4);
+
+	seqD4 = p3(seqD4, v3);
+	cout << "Affichage permutation3 vers SequenceD<4> :" << endl;
+	affichage(seqD4);
+
+	//test KeyGen
+	cout << endl << "====================" << endl << "Test KeyGen :" << endl;
+	SequenceD<64> sequenceD;
+
+	KeyGen keyGen(sequenceD);
+
+	for (int i = 0; i < 16; i++) {
+		cout << "Cle " << i << " : ";
+		affichage(keyGen.next());
+		cout << endl;
+	}
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
