@@ -5,6 +5,7 @@
 #include "Sequence.h"
 #include "SequenceD.h"
 #include "helper.cpp"
+#include "Permutation.h"
 
 using namespace std;
 static void testSequence();
@@ -85,7 +86,7 @@ static void testSequenceD() {
 	cout << seqD;
 	write(cout, seqD);
 
-	string jeanvalj = "0100101001000101010000010100111001010110010000010100110001001010";*/
+	string jeanvalj = "0100101001000101010000010100111001010110010000010100110001001010";
 
 	read(cin, seqD);
 	cout << "WRITE : " << endl;
@@ -95,8 +96,16 @@ static void testSequenceD() {
 	affichage(seqD);
 
 	cout << "AFFICHAGE seq :" << endl;
-	affichage(seq);
+	affichage(seq);*/
 
+	//test Permutation
+	cout << endl << "Test Permutation :" << endl;
+	vector<int> v{ 2,0,3,1 };
+	Permutation<4, 4> p;
+	SequenceD<4> seqD4 = SequenceD<4>();
+	SequenceD<4> seqD5 = p(seqD4, v);
+
+	affichage(seqD5);
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
