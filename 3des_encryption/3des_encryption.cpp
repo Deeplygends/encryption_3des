@@ -8,6 +8,7 @@
 #include "Permutation.h"
 #include "KeyGen.h"
 #include "Sbox.h"
+#include "F.h"
 
 using namespace std;
 static void testSequence();
@@ -194,6 +195,9 @@ static void testSequenceD()
 			{2, 1, 14, 7, 4, 10, 8, 13, 15, 12, 9, 0, 3, 5, 6, 11}
 		}
 	};
+
+	SequenceD<64> sequenceD = SequenceD<64>();
+	F f = F(sequenceD);
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage

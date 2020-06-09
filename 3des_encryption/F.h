@@ -1,5 +1,6 @@
 #ifndef ENCRYPTION_3DES_F_H
 #define ENCRYPTION_3DES_F_H
+using namespace std;
 
 #include "SequenceD.h"
 #include "KeyGen.h"

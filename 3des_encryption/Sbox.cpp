@@ -1,5 +1,6 @@
 using namespace std;
 #include "Sbox.h"
+#include "math.h"
 
 Sbox::Sbox(int** matrice) {
 	this->matrice = matrice;
