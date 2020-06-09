@@ -78,14 +78,16 @@ Sequence F::operator()(Sequence seq)
 				   19, 13, 30, 6,
 				   22, 11, 4, 25 };
 
-	Sequence seq48 = seq.permutation(e_p);
+	Permutation<32, 48> exp_perm;
+	SequenceD<32> seqD32 = SequenceD<32>(seq.sous_sequence(0, seq.size() / 2), seq.sous_sequence(seq.size() / 2 + 1, seq.size()));
+	SequenceD<48> seq48 = exp_perm(seqD32, e_p);
 	SequenceD<48> key = keygen_.next();
 
 	// XOR avec sous-clé
-	SequenceD<48> xor = seq48 * key;
+	SequenceD<48> xor_seqD =  seq48 * key;
 
 	// S_fonction (sboxes)
-	Sequence sub = s_fonction_(xor);
+	Sequence sub = s_fonction_(xor_seqD);
 
 	// permutation
 	return sub.permutation(p);
