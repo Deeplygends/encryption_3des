@@ -154,6 +154,7 @@
     <ClCompile Include="Sbox.cpp" />
     <ClCompile Include="Sequence.cpp" />
     <ClCompile Include="SequenceD.cpp" />
+    <ClCompile Include="S_fonction.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KeyGen.h" />
@@ -161,6 +162,7 @@
     <ClInclude Include="Sbox.h" />
     <ClInclude Include="Sequence.h" />
     <ClInclude Include="SequenceD.h" />
+    <ClInclude Include="S_fonction.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

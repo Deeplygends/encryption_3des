@@ -12,7 +12,7 @@ public:
 	~Sbox();
 	Sbox(const Sbox& sbox);
 	Sbox& operator=(const Sbox& sbox);
-	SequenceD<> operator()(SequenceD<>);
+	Sequence operator()(Sequence);
 };
 
 

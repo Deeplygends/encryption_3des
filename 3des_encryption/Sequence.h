@@ -24,7 +24,7 @@ public:
 
 	double size();
 
-	Sequence& operator=(int entier);
+	Sequence& operator=(int& entier);
 
 	void decalage(int shift);
 

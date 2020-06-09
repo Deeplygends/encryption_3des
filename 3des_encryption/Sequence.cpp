@@ -44,7 +44,7 @@ double Sequence::size() {
 	return sequence_.size();
 }
 
-Sequence& Sequence::operator=(int entier) {
+Sequence& Sequence::operator=(int& entier) {
 	int position = 0;
 	deque<int> binary;
 	do
