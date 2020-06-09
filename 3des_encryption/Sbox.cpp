@@ -14,7 +14,8 @@ Sbox::Sbox(const Sbox& sbox) {
 }
 
 Sbox& Sbox::operator=(const Sbox& sbox) {
-	//Forme canonique ??
+	matrice = sbox.matrice;
+	return *this;
 }
 
 SequenceD<> Sbox::operator()(SequenceD<>) {
