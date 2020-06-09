@@ -4,7 +4,7 @@
 
 F::F(SequenceD<64> seqD)
 {
-	int sboxes[8][4][16] = {
+	int aya[8][4][16] = {
 		{
 			{14, 4, 13, 1, 2, 15, 11, 8, 3, 10, 6, 12, 5, 9, 0, 7},
 			{0, 15, 7, 4, 14, 2, 13, 1, 10, 6, 12, 11, 9, 5, 3, 8},
@@ -54,8 +54,27 @@ F::F(SequenceD<64> seqD)
 			{2, 1, 14, 7, 4, 10, 8, 13, 15, 12, 9, 0, 3, 5, 6, 11}
 		}
 	};
+    int*** myArray = new int**[8];
+
+    // Allocate an array for each element of the first array
+    for(int x = 0; x < 8; ++x)
+    {
+        myArray[x] = new int*[4];
+
+        // Allocate an array of integers for each element of this array
+        for(int y = 0; y < 4; ++y)
+        {
+            myArray[x][y] = new int[16];
+
+            // Specify an initial value (if desired)
+            for(int z = 0; z < 16; ++z)
+            {
+                myArray[x][y][z] = 1;
+            }
+        }
+    }
 	keygen_ = KeyGen(seqD);
-	s_fonction_ = S_fonction(sboxes);
+	s_fonction_ = S_fonction(myArray);
 }
 
 Sequence F::operator()(Sequence seq)
@@ -83,11 +102,17 @@ Sequence F::operator()(Sequence seq)
 	SequenceD<48> seq48 = exp_perm(seqD32, e_p);
 	SequenceD<48> key = keygen_.next();
 
-	// XOR avec sous-clé
+	// XOR avec sous-clÃ©
 	SequenceD<48> xor_seqD =  seq48 * key;
+    list<Sequence> listSeq({xor_seqD.left(),xor_seqD.right()});
+
+
+    //listSeq.push_back(xor_seqD.left());
+    //listSeq.push_back(xor_seqD.right());
+	Sequence xor_seq =  Sequence(listSeq);
 
 	// S_fonction (sboxes)
-	Sequence sub = s_fonction_(xor_seqD);
+	Sequence sub = s_fonction_(xor_seq);
 
 	// permutation
 	return sub.permutation(p);
