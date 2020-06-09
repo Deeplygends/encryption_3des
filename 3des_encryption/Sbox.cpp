@@ -9,6 +9,10 @@ Sbox::~Sbox() {
 	delete matrice;
 }
 
+Sbox::Sbox(const Sbox& sbox) {
+	matrice = sbox.matrice;
+}
+
 Sbox& Sbox::operator=(const Sbox& sbox) {
 	//Forme canonique ??
 }
