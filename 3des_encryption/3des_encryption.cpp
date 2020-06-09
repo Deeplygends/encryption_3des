@@ -7,6 +7,7 @@
 #include "helper.cpp"
 #include "Permutation.h"
 #include "KeyGen.h"
+#include "Sbox.h"
 
 using namespace std;
 static void testSequence();
@@ -97,7 +98,7 @@ static void testSequenceD() {
 	affichage(seqD);
 
 	cout << "AFFICHAGE seq :" << endl;
-	affichage(seq);*/
+	affichage(seq);
 
 	//test Permutation
 	cout << endl << "Test Permutation :" << endl;
@@ -136,6 +137,17 @@ static void testSequenceD() {
 		affichage(keyGen.next());
 		cout << endl;
 	}
+
+	 */
+
+
+	//Test SBox
+
+    int tableau[2][2] = {{1, 2}, {3, 4}};
+	//Sbox sbox(tableau);
+
+
+
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
