@@ -91,7 +91,8 @@ Sequence Sequence::permutation(vector<int>& v) {
 	Sequence sequ = Sequence(size());
 	for (int i = 0; i < size(); i++)
 	{
-		sequ[i] = sequence_[v[i] - 1];
+		//sequ[i] = sequence_[v[i] - 1];
+		sequ[i] = v[i]-1 < size() ? sequence_[v[i]-1] : 0;
 	}
 	return sequ;
 }

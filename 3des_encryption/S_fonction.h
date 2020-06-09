@@ -7,6 +7,7 @@
 class S_fonction {
 public:
 	S_fonction(int*** sboxes);
+	S_fonction() = default;
 	~S_fonction();
 	S_fonction(const S_fonction& s_fonction);
 	S_fonction& operator=(const S_fonction& s_fonction);

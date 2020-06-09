@@ -8,9 +8,10 @@
 class F {
 public:
 	F(SequenceD<64>);
+	Sequence operator()(Sequence seq);
 
 private:
-	KeyGen key_;
+	KeyGen keygen_;
 	S_fonction s_fonction_;
 };
 
