@@ -1,3 +1,6 @@
+#ifndef ENCRYPTION_3DES_PERMUTATION_H
+#define ENCRYPTION_3DES_PERMUTATION_H
+
 using namespace std;
 #include "SequenceD.h"
 
@@ -15,3 +18,5 @@ SequenceD<sizeOut> Permutation<sizeIn, sizeOut>::operator()(SequenceD<sizeIn> se
 	}
 	return seq;
 }
+
+#endif // ENCRYPTION_3DES_PERMUTATION_H

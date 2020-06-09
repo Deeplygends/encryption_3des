@@ -1,4 +1,3 @@
-#pragma once
 #ifndef ENCRYPTION_3DES_SEQUENCE_H
 #define ENCRYPTION_3DES_SEQUENCE_H
 
@@ -39,4 +38,4 @@ public:
 };
 
 
-#endif //ENCRYPTION_3DES_SEQUENCE_H
+#endif // ENCRYPTION_3DES_SEQUENCE_H

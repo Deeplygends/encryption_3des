@@ -1,14 +1,11 @@
-//
-// Created by Victor on 08/06/2020.
-//
-
+using namespace std;
 #include "Sbox.h"
 
 Sbox::Sbox(int** matrice) {
-    this.matrice = matrice
+    this->matrice = matrice;
 }
 
-booleen Sbox::operator=(SequenceD<>) {
+bool Sbox::operator=(SequenceD<>) {
     //Forme canonique ??
 }
 

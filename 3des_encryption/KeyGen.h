@@ -1,3 +1,6 @@
+#ifndef ENCRYPTION_3DES_KEYGEN_H
+#define ENCRYPTION_3DES_KEYGEN_H
+
 #include "SequenceD.h"
 using namespace std;
 
@@ -29,3 +32,5 @@ private:
 
 	const vector<int> LS = { 1,1,2,2,2,2,2,2,1,2,2,2,2,2,2,1 };
 };
+
+#endif // ENCRYPTION_3DES_KEYGEN_H
