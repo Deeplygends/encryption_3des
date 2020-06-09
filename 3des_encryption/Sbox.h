@@ -9,6 +9,7 @@ private:
 	int** matrice;
 public:
 	Sbox(int** matrice);
+	~Sbox();
 	Sbox& operator=(const Sbox& sbox);
 	SequenceD<> operator()(SequenceD<>);
 };

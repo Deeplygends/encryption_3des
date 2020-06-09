@@ -151,12 +151,14 @@
     <ClCompile Include="helper.cpp" />
     <ClCompile Include="KeyGen.cpp" />
     <ClCompile Include="Permutation.cpp" />
+    <ClCompile Include="Sbox.cpp" />
     <ClCompile Include="Sequence.cpp" />
     <ClCompile Include="SequenceD.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KeyGen.h" />
     <ClInclude Include="Permutation.h" />
+    <ClInclude Include="Sbox.h" />
     <ClInclude Include="Sequence.h" />
     <ClInclude Include="SequenceD.h" />
   </ItemGroup>

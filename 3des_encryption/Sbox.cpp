@@ -5,6 +5,10 @@ Sbox::Sbox(int** matrice) {
 	this->matrice = matrice;
 }
 
+Sbox::~Sbox() {
+	delete matrice;
+}
+
 Sbox& Sbox::operator=(const Sbox& sbox) {
 	//Forme canonique ??
 }
