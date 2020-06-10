@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClCompile Include="3des_encryption.cpp" />
     <ClCompile Include="F.cpp" />
+    <ClCompile Include="Finv.cpp" />
     <ClCompile Include="helper.cpp" />
     <ClCompile Include="KeyGen.cpp" />
     <ClCompile Include="Permutation.cpp" />
@@ -159,6 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="F.h" />
+    <ClInclude Include="Finv.h" />
     <ClInclude Include="KeyGen.h" />
     <ClInclude Include="Permutation.h" />
     <ClInclude Include="Sbox.h" />
