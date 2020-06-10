@@ -4,7 +4,7 @@
 
 F::F(SequenceD<64> seqD)
 {
-	int aya[8][4][16] = {
+	int sboxes[8][4][16] = {
 		{
 			{14, 4, 13, 1, 2, 15, 11, 8, 3, 10, 6, 12, 5, 9, 0, 7},
 			{0, 15, 7, 4, 14, 2, 13, 1, 10, 6, 12, 11, 9, 5, 3, 8},
@@ -54,27 +54,27 @@ F::F(SequenceD<64> seqD)
 			{2, 1, 14, 7, 4, 10, 8, 13, 15, 12, 9, 0, 3, 5, 6, 11}
 		}
 	};
-    int*** myArray = new int**[8];
+    int*** sbox_array = new int**[8];
 
     // Allocate an array for each element of the first array
     for(int x = 0; x < 8; ++x)
     {
-        myArray[x] = new int*[4];
+        sbox_array[x] = new int*[4];
 
         // Allocate an array of integers for each element of this array
         for(int y = 0; y < 4; ++y)
         {
-            myArray[x][y] = new int[16];
+            sbox_array[x][y] = new int[16];
 
-            // Specify an initial value (if desired)
+            // Specify an specific value
             for(int z = 0; z < 16; ++z)
             {
-                myArray[x][y][z] = 1;
+                sbox_array[x][y][z] = sboxes[x][y][z];
             }
         }
     }
 	keygen_ = KeyGen(seqD);
-	s_fonction_ = S_fonction(myArray);
+	s_fonction_ = S_fonction(sbox_array);
 }
 
 Sequence F::operator()(Sequence seq)

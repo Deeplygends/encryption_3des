@@ -159,6 +159,7 @@
     <ClCompile Include="S_fonction.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DES.h" />
     <ClInclude Include="F.h" />
     <ClInclude Include="Finv.h" />
     <ClInclude Include="KeyGen.h" />
