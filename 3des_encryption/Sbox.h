@@ -5,7 +5,7 @@
 
 class sbox {
 public:
-	explicit sbox(int** matrice);
+	sbox(int** matrice);
 	~sbox();
 	sbox(const sbox& sbox);
 	sbox& operator=(const sbox& sbox);

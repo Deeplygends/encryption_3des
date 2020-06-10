@@ -8,7 +8,7 @@ using namespace std;
 
 class f {
 public:
-	explicit f(sequence_d<64>);
+	f(sequence_d<64>);
 	sequence operator()(sequence seq);
 
 private:

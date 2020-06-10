@@ -6,7 +6,7 @@ using namespace std;
 
 class key_gen {
 public:
-	explicit key_gen(sequence_d<64> seq_d);
+	key_gen(sequence_d<64> seq_d);
 	key_gen() = default;
 	sequence_d<48> next();
 

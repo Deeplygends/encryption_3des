@@ -12,9 +12,9 @@ using namespace std;
 class sequence {
 
 public:
-	explicit sequence(int taille_sequence = 4);
+	sequence(int taille_sequence = 4);
 
-	explicit sequence(list<sequence>& liste_sequences);
+	sequence(list<sequence>& liste_sequences);
 
 	int& operator[](int index);
 

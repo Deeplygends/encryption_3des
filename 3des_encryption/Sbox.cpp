@@ -1,6 +1,5 @@
 using namespace std;
 #include "Sbox.h"
-#include "math.h"
 
 sbox::sbox(int** matrice) {
 	this->matrice_ = matrice;
@@ -35,7 +34,7 @@ sequence sbox::operator()(sequence seq) {
 		col += colSeq(i) * pow(2, i);
 	}
 
-	int res = matrice_[row][col];
+	auto res = matrice_[row][col];
 	sequence resSeq = res;
 	return resSeq;
 }
