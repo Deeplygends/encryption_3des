@@ -4,7 +4,7 @@
 
 Finv::Finv(SequenceD<64> seqD)
 {
-	int aya[8][4][16] = {
+	int sboxes[8][4][16] = {
 		{
 			{14, 4, 13, 1, 2, 15, 11, 8, 3, 10, 6, 12, 5, 9, 0, 7},
 			{0, 15, 7, 4, 14, 2, 13, 1, 10, 6, 12, 11, 9, 5, 3, 8},
@@ -54,28 +54,29 @@ Finv::Finv(SequenceD<64> seqD)
 			{2, 1, 14, 7, 4, 10, 8, 13, 15, 12, 9, 0, 3, 5, 6, 11}
 		}
 	};
-	int*** myArray = new int** [8];
+	int*** sbox_array = new int** [8];
 
 	// Allocate an array for each element of the first array
 	for (int x = 0; x < 8; ++x)
 	{
-		myArray[x] = new int* [4];
+		sbox_array[x] = new int* [4];
 
 		// Allocate an array of integers for each element of this array
 		for (int y = 0; y < 4; ++y)
 		{
-			myArray[x][y] = new int[16];
+			sbox_array[x][y] = new int[16];
 
 			// Specify an initial value (if desired)
 			for (int z = 0; z < 16; ++z)
 			{
-				myArray[x][y][z] = 1;
+				sbox_array[x][y][z] = sboxes[x][y][z];
 			}
 		}
 	}
 	keygen_ = KeyGen(seqD);
-	s_fonction_ = S_fonction(myArray);
+	s_fonction_ = S_fonction(sbox_array);
 
+	this->keyToUse = 0;
 	//Generation of all the key and put it in the revert order
 	for (int i = 0; i < 16; i++)
 		keys[15 - i] = keygen_.next();
@@ -105,12 +106,12 @@ Sequence Finv::operator()(Sequence seq)
 	Permutation<32, 48> exp_perm;
 	SequenceD<32> seqD32 = SequenceD<32>(seq.sous_sequence(0, seq.size() / 2), seq.sous_sequence(seq.size() / 2 + 1, seq.size()));
 	SequenceD<48> seq48 = exp_perm(seqD32, e_p);
-	
+
 	//TO DO : Remplacer cette ligne par l'indice dans le tableau;
 	//SequenceD<48> key = keygen_.next();
 	SequenceD<48> key = keys[keyToUse];
-	keyToUse--;
-	
+	keyToUse++;
+
 	// XOR avec sous-clé
 	SequenceD<48> xor_seqD = seq48 * key;
 	list<Sequence> listSeq({ xor_seqD.left(),xor_seqD.right() });

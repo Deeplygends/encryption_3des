@@ -6,7 +6,6 @@
 #include <string>
 #include <sstream>
 #include <bitset>
-#include <cstdlib>
 using namespace std;
 
 template<int Size = 4>
@@ -34,7 +33,7 @@ public:
 	friend ostream& operator<<(ostream&, SequenceD<64>);
 
 	template<int>
-	friend istream& operator>>(ostream&, SequenceD<64>&);
+	friend istream& operator>>(istream&, SequenceD<64>&);
 
 	void affichage();
 
