@@ -24,7 +24,7 @@ SequenceD<64> des::operator()(SequenceD<64> seq_d)
 	SequenceD<64> roundSeqD = permutation(seq_d, initial_perm);
 
 	// F fonction
-	F f = F(key_);
+	f f = f(key_);
 
 	for (int i = 0; i < 16; i++)
 	{

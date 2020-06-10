@@ -1,8 +1,8 @@
-#include "Finv.h"
+#include "f_inv.h"
 #include "Permutation.h"
 
 
-Finv::Finv(SequenceD<64> seqD)
+f_inv::f_inv(SequenceD<64> seqD)
 {
 	int sboxes[8][4][16] = {
 		{
@@ -76,14 +76,14 @@ Finv::Finv(SequenceD<64> seqD)
 	keygen_ = KeyGen(seqD);
 	s_fonction_ = S_fonction(sbox_array);
 
-	this->keyToUse = 0;
+	this->key_to_use = 0;
 	//Generation of all the key and put it in the revert order
 	for (int i = 0; i < 16; i++)
 		keys[15 - i] = keygen_.next();
 }
 
 
-Sequence Finv::operator()(Sequence seq)
+Sequence f_inv::operator()(Sequence seq)
 {
 	// expansion/permutation
 	vector<int> e_p = { 32, 1, 2, 3, 4, 5, 4, 5,
@@ -109,8 +109,8 @@ Sequence Finv::operator()(Sequence seq)
 
 	//TO DO : Remplacer cette ligne par l'indice dans le tableau;
 	//SequenceD<48> key = keygen_.next();
-	SequenceD<48> key = keys[keyToUse];
-	keyToUse++;
+	SequenceD<48> key = keys[key_to_use];
+	key_to_use++;
 
 	// XOR avec sous-clé
 	SequenceD<48> xor_seqD = seq48 * key;

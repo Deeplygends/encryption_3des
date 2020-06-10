@@ -197,7 +197,7 @@ static void testSequenceD()
 	};
 
 	SequenceD<64> sequenceD = SequenceD<64>();
-	F f = F(sequenceD);
+	f f = f(sequenceD);
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
