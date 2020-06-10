@@ -17,11 +17,11 @@ s_fonction& s_fonction::operator=(const s_fonction& s_fonction) {
 	return *this;
 }
 
-Sequence s_fonction::operator()(Sequence seq) {
-	list<Sequence> listSeq;
+sequence s_fonction::operator()(sequence seq) {
+	list<sequence> listSeq;
 	for (int i = 0; i < 8; i++) {
 		Sbox sbox = Sbox(sboxes_[i]);
 		listSeq.push_back(sbox(seq.sous_sequence(i * 8, i * 8 + 5)));
 	}
-	return Sequence(listSeq);
+	return sequence(listSeq);
 }

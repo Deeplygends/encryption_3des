@@ -8,8 +8,8 @@ using namespace std;
 
 class f {
 public:
-	explicit f(SequenceD<64>);
-	Sequence operator()(Sequence seq);
+	explicit f(sequence_d<64>);
+	sequence operator()(sequence seq);
 
 private:
 	key_gen keygen_;

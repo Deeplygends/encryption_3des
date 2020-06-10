@@ -2,7 +2,7 @@
 
 #include "Permutation.h"
 
-f::f(SequenceD<64> seqD)
+f::f(sequence_d<64> seqD)
 {
 	int sboxes[8][4][16] = {
 		{
@@ -77,7 +77,7 @@ f::f(SequenceD<64> seqD)
 	s_fonction_ = s_fonction(sbox_array);
 }
 
-Sequence f::operator()(Sequence seq)
+sequence f::operator()(sequence seq)
 {
 	// expansion/permutation
 	vector<int> e_p = { 32, 1, 2, 3, 4, 5, 4, 5,
@@ -98,21 +98,21 @@ Sequence f::operator()(Sequence seq)
 				   22, 11, 4, 25 };
 
 	permutation<32, 48> exp_perm;
-	SequenceD<32> seqD32 = SequenceD<32>(seq.sous_sequence(0, seq.size() / 2), seq.sous_sequence(seq.size() / 2 + 1, seq.size()));
-	SequenceD<48> seq48 = exp_perm(seqD32, e_p);
-	SequenceD<48> key = keygen_.next();
+	sequence_d<32> seqD32 = sequence_d<32>(seq.sous_sequence(0, seq.size() / 2), seq.sous_sequence(seq.size() / 2 + 1, seq.size()));
+	sequence_d<48> seq48 = exp_perm(seqD32, e_p);
+	sequence_d<48> key = keygen_.next();
 
 	// XOR avec sous-clé
-	SequenceD<48> xor_seqD = seq48 * key;
-	list<Sequence> listSeq({ xor_seqD.left(),xor_seqD.right() });
+	sequence_d<48> xor_seqD = seq48 * key;
+	list<sequence> listSeq({ xor_seqD.left(),xor_seqD.right() });
 
 
 	//listSeq.push_back(xor_seqD.left());
 	//listSeq.push_back(xor_seqD.right());
-	Sequence xor_seq = Sequence(listSeq);
+	sequence xor_seq = sequence(listSeq);
 
 	// S_fonction (sboxes)
-	Sequence sub = s_fonction_(xor_seq);
+	sequence sub = s_fonction_(xor_seq);
 
 	// permutation
 	return sub.permutation(p);

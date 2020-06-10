@@ -9,11 +9,11 @@
 using namespace std;
 
 template<int Size = 4>
-class SequenceD : private Sequence {
+class sequence_d : sequence {
 public:
-	SequenceD();
+	sequence_d();
 
-	SequenceD(Sequence seq1, Sequence seq2);
+	sequence_d(sequence seq1, sequence seq2);
 
 	int& operator[](int index);
 
@@ -23,39 +23,39 @@ public:
 
 	void decalage(int shift);
 
-	SequenceD& operator*(SequenceD<Size>& seq);
+	sequence_d& operator*(sequence_d<Size>& seq);
 
-	Sequence& right();
+	sequence& right();
 
-	Sequence& left();
-
-	template<int>
-	friend ostream& operator<<(ostream&, SequenceD<64>);
+	sequence& left();
 
 	template<int>
-	friend istream& operator>>(istream&, SequenceD<64>&);
+	friend ostream& operator<<(ostream&, sequence_d<64>);
+
+	template<int>
+	friend istream& operator>>(istream&, sequence_d<64>&);
 
 	void affichage();
 
 private:
-	Sequence l_;
-	Sequence r_;
+	sequence l_;
+	sequence r_;
 };
 
 template<int Size>
-SequenceD<Size>::SequenceD() {
-	l_ = Sequence(Size / 2);
-	r_ = Sequence(Size / 2);
+sequence_d<Size>::sequence_d() {
+	l_ = sequence(Size / 2);
+	r_ = sequence(Size / 2);
 }
 
 template<int Size>
-SequenceD<Size>::SequenceD(Sequence seq1, Sequence seq2) {
+sequence_d<Size>::sequence_d(const sequence seq1, const sequence seq2) {
 	l_ = seq1;
 	r_ = seq2;
 }
 
 template<int Size>
-int& SequenceD<Size>::operator[](int index) {
+int& sequence_d<Size>::operator[](const int index) {
 	// return modifiable <index>th bit of the sequence
 	if (index < Size / 2)
 		return l_[index];
@@ -65,7 +65,7 @@ int& SequenceD<Size>::operator[](int index) {
 }
 
 template<int Size>
-const int SequenceD<Size>::operator()(const int index) {
+const int sequence_d<Size>::operator()(const int index) {
 	// return unmodifiable <index>th bit of the sequence
 	if (index < Size / 2)
 		return l_(index);
@@ -74,29 +74,29 @@ const int SequenceD<Size>::operator()(const int index) {
 }
 
 template<int Size>
-double SequenceD<Size>::size() {
+double sequence_d<Size>::size() {
 	return Size;
 }
 
 template<int Size>
-void SequenceD<Size>::decalage(int shift) {
+void sequence_d<Size>::decalage(const int shift) {
 	// shift <shift> left bits to the right of the Sequence
 	l_.decalage(shift);
 	r_.decalage(shift);
 }
 
 template<int Size>
-Sequence& SequenceD<Size>::right() {
+sequence& sequence_d<Size>::right() {
 	return r_;
 }
 
 template<int Size>
-Sequence& SequenceD<Size>::left() {
+sequence& sequence_d<Size>::left() {
 	return l_;
 }
 
 template<int Size>
-SequenceD<Size>& SequenceD<Size>::operator*(SequenceD<Size>& seq) {
+sequence_d<Size>& sequence_d<Size>::operator*(sequence_d<Size>& seq) {
 	// return XOR on two sequences
 	l_ = l_ * seq.left();
 	r_ = r_ * seq.right();
@@ -104,26 +104,26 @@ SequenceD<Size>& SequenceD<Size>::operator*(SequenceD<Size>& seq) {
 }
 
 template<int Size>
-ostream& operator<<(ostream& os, SequenceD<Size> seq) {
+ostream& operator<<(ostream& os, sequence_d<Size> seq) {
 	if (Size != 64)
 		return os;
 	string s = "";
-	for (int i = 0; i < 4; i++) {
-		Sequence seq8bits = seq.left().sous_sequence(i * 8, i * 8 + 7);
-		string byteString = seq8bits.stringify();
+	for (auto i = 0; i < 4; i++) {
+		sequence seq8_bits = seq.left().sous_sequence(i * 8, i * 8 + 7);
+		auto byteString = seq8_bits.stringify();
 		bitset<8> byte;
-		for (int j = 7; j > -1; j--)
-			byte[j] = seq8bits(7 - j);
-		char c = static_cast<char>(byte.to_ulong());
+		for (auto j = 7; j > -1; j--)
+			byte[j] = seq8_bits(7 - j);
+		const auto c = static_cast<char>(byte.to_ulong());
 		s += c;
 	}
-	for (int i = 0; i < 4; i++) {
-		Sequence seq8bits = seq.right().sous_sequence(i * 8, i * 8 + 7);
-		string byteString = seq8bits.stringify();
+	for (auto i = 0; i < 4; i++) {
+		sequence seq8_bits = seq.right().sous_sequence(i * 8, i * 8 + 7);
+		auto byte_string = seq8_bits.stringify();
 		bitset<8> byte;
-		for (int j = 7; j > -1; j--)
-			byte[j] = seq8bits(7 - j);
-		char c = static_cast<char>(byte.to_ulong());
+		for (auto j = 7; j > -1; j--)
+			byte[j] = seq8_bits(7 - j);
+		const auto c = static_cast<char>(byte.to_ulong());
 		s += c;
 	}
 
@@ -132,17 +132,17 @@ ostream& operator<<(ostream& os, SequenceD<Size> seq) {
 }
 
 template<int Size>
-istream& operator>>(istream& is, SequenceD<Size>& seq) {
+istream& operator>>(istream& is, sequence_d<Size>& seq) {
 	if (Size != 64)
 		return is;
-	for (int i = 0; i < 64; i += 8)
+	for (auto i = 0; i < 64; i += 8)
 	{
 		char c;
 		is >> c;
-		bitset<8> set = bitset<8>(c);
+		auto set = bitset<8>(c);
 		string array = set.to_string().c_str();
-		int j = 0;
-		for (char ele : array)
+		auto j = 0;
+		for (auto ele : array)
 		{
 			seq[i + j] = ele - '0';
 			j++;
@@ -157,12 +157,12 @@ istream& operator>>(istream& is, SequenceD<Size>& seq) {
 }
 
 template<int Size>
-ostream& write(ostream& os, SequenceD<Size> seq)
+ostream& write(ostream& os, sequence_d<Size> seq)
 {
 	if (Size != 64)
 		return os;
 	os << endl;
-	for (int i = 0; i < Size; i++)
+	for (auto i = 0; i < Size; i++)
 	{
 		os << seq(i);
 		if ((i + 1) % 8 == 0) os << " ";
@@ -172,12 +172,12 @@ ostream& write(ostream& os, SequenceD<Size> seq)
 }
 
 template<int Size>
-istream& read(istream& is, SequenceD<Size>& seq)
+istream& read(istream& is, sequence_d<Size>& seq)
 {
 	if (Size != 64)
 		return is;
 	char c;
-	for (int i = 0; i < 64; i++) {
+	for (auto i = 0; i < 64; i++) {
 		is >> c;
 		seq[i] = c - '0';
 	}
@@ -189,10 +189,11 @@ template<typename T>
 void affichage(T seq)
 {
 	int size = seq.size();
-	for (int i = 0; i < size; i++) {
+	for (auto i = 0; i < size; i++) {
 		cout << seq(i);
 		if ((i + 1) % 8 == 0) cout << " ";
 	}
 	cout << endl;
 }
+
 #endif // ENCRYPTION_3DES_SEQUENCED_H

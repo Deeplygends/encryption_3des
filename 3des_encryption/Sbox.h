@@ -3,17 +3,16 @@
 #include "SequenceD.h"
 
 
-class Sbox {
+class sbox {
+public:
+	explicit sbox(int** matrice);
+	~sbox();
+	sbox(const sbox& sbox);
+	sbox& operator=(const sbox& sbox);
+	sequence operator()(sequence);
 
 private:
-	int** matrice;
-public:
-	Sbox(int** matrice);
-	~Sbox();
-	Sbox(const Sbox& sbox);
-	Sbox& operator=(const Sbox& sbox);
-	Sequence operator()(Sequence);
+	int** matrice_;
 };
-
 
 #endif // ENCRYPTION_3DES_SBOX_H

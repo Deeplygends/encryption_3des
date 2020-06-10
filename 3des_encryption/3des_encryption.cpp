@@ -22,12 +22,12 @@ int main()
 
 static void testSequence()
 {
-	Sequence sequ = Sequence(5);
-	Sequence sequ2 = Sequence(5);
-	list<Sequence> list;
+	sequence sequ = sequence(5);
+	sequence sequ2 = sequence(5);
+	list<sequence> list;
 	list.push_back(sequ);
 	list.push_back(sequ2);
-	Sequence sequ3 = Sequence(list);
+	sequence sequ3 = sequence(list);
 
 	cout << "Sequence before editing : ";
 	sequ.stringify();
@@ -47,26 +47,26 @@ static void testSequence()
 	cout << "XOR between 2 sequence" << endl;
 	sequ.stringify();
 	sequ2.stringify();
-	Sequence sequ4 = sequ * sequ2;
+	sequence sequ4 = sequ * sequ2;
 	sequ4.stringify();
 
 	cout << "Sous sequence start 1 end 3";
 	sequ.stringify();
-	Sequence sequ5 = sequ.sous_sequence(1, 3);
+	sequence sequ5 = sequ.sous_sequence(1, 3);
 	sequ5.stringify();
 
 
 	cout << "Permutation of sequence (size 5) with vector (5 , 3 , 1 , 4 , 2 )";
 	sequ.stringify();
 	vector<int> vect = {5, 3, 1, 4, 2};
-	Sequence sequ6 = sequ.permutation(vect);
+	sequence sequ6 = sequ.permutation(vect);
 	sequ6.stringify();
 }
 
 static void testSequenceD()
 {
-	SequenceD<64> seqD = SequenceD<64>();
-	Sequence seq = Sequence();
+	sequence_d<64> seqD = sequence_d<64>();
+	sequence seq = sequence();
 	/*SequenceD<8> seq2 = SequenceD<8>();
 
 
@@ -196,7 +196,7 @@ static void testSequenceD()
 		}
 	};
 
-	SequenceD<64> sequenceD = SequenceD<64>();
+	sequence_d<64> sequenceD = sequence_d<64>();
 	f f = f(sequenceD);
 }
 

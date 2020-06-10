@@ -6,12 +6,12 @@ using namespace std;
 
 class key_gen {
 public:
-	explicit key_gen(SequenceD<64> seq_d);
+	explicit key_gen(sequence_d<64> seq_d);
 	key_gen() = default;
-	SequenceD<48> next();
+	sequence_d<48> next();
 
 private:
-	SequenceD<56> seq_d56_;
+	sequence_d<56> seq_d56_;
 	int round_no_ = 0;
 
 	vector<int> pc1_ = { 57,49,41,33,25,17,9,

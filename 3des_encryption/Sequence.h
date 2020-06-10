@@ -9,14 +9,12 @@
 
 using namespace std;
 
-class Sequence {
-private:
-	deque<int> sequence_;
+class sequence {
 
 public:
-	Sequence(int tailleSequence = 4);
+	explicit sequence(int taille_sequence = 4);
 
-	Sequence(list<Sequence>& listeSequences);
+	explicit sequence(list<sequence>& liste_sequences);
 
 	int& operator[](int index);
 
@@ -24,18 +22,20 @@ public:
 
 	double size();
 
-	Sequence& operator=(int& entier);
+	sequence& operator=(int& entier);
 
 	void decalage(int shift);
 
 	string stringify();
 
-	Sequence& operator*(Sequence& seq);
+	sequence& operator*(sequence& seq);
 
-	Sequence permutation(vector<int>& v);
+	sequence permutation(vector<int>& v);
 
-	Sequence sous_sequence(int debut, int fin);
+	sequence sous_sequence(int debut, int fin);
+
+private:
+	deque<int> sequence_;
 };
-
 
 #endif // ENCRYPTION_3DES_SEQUENCE_H
