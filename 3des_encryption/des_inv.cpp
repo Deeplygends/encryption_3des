@@ -20,7 +20,7 @@ SequenceD<64> des_inv::operator()(SequenceD<64> seq_d)
 							 61, 53, 45, 37, 29, 21, 13, 5,
 							 63, 55, 47, 39, 31, 23, 15, 7 };
 
-	Permutation<64, 64> permutation;
+	permutation<64, 64> permutation;
 	SequenceD<64> roundSeqD = permutation(seq_d, initial_perm);
 
 	// F fonction

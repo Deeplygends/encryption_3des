@@ -12,8 +12,8 @@ public:
 	Sequence operator()(Sequence seq);
 
 private:
-	KeyGen keygen_;
-	S_fonction s_fonction_;
+	key_gen keygen_;
+	s_fonction s_fonction_;
 };
 
 #endif // ENCRYPTION_3DES_F_H

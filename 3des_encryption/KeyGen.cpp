@@ -1,16 +1,16 @@
 #include "KeyGen.h"
 #include "Permutation.h"
 
-KeyGen::KeyGen(SequenceD<64> seqD) {
-	Permutation<64, 56> permutation;
-	roundNo = 0;
-	seqD56 = permutation(seqD, PC1);
+key_gen::key_gen(SequenceD<64> seq_d) {
+	permutation<64, 56> permutation;
+	round_no_ = 0;
+	seq_d56_ = permutation(seq_d, pc1_);
 }
 
-SequenceD<48> KeyGen::next() {
-	int bitsToRotate = LS[roundNo++];
-	seqD56.decalage(bitsToRotate);
+SequenceD<48> key_gen::next() {
+	int bitsToRotate = ls_[round_no_++];
+	seq_d56_.decalage(bitsToRotate);
 
-	Permutation<56, 48> permutation;
-	return permutation(seqD56, PC2);
+	permutation<56, 48> permutation;
+	return permutation(seq_d56_, pc2_);
 }
