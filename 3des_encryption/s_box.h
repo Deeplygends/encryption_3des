@@ -11,8 +11,8 @@ public:
 	s_box(int** matrice);
 	~s_box();
 	s_box(const s_box& sbox);
-	s_box& operator=(const s_box& sbox);
-	sequence operator()(sequence) const;
+	s_box& operator=(s_box& sbox);
+	sequence operator()(sequence);
 };
 
 #endif // ENCRYPTION_3DES_SBOX_H

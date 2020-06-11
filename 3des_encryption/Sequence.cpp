@@ -38,6 +38,8 @@ int& sequence::operator[](int index) {
 int sequence::operator()(const int index)
 {
 	// return unmodifiable <index>th bit of the sequence
+	if (index > 32)
+		return sequence_.at(31);
 	return sequence_.at(index);
 }
 

@@ -28,6 +28,8 @@ public:
 	sequence& right();
 
 	sequence& left();
+	
+	void import_string(string line);
 
 	template<int>
 	friend ostream& operator<<(ostream&, sequence_d<64>);
@@ -190,9 +192,33 @@ void affichage(T seq)
 {
 	const int size = seq.size();
 	for (auto i = 0; i < size; i++) {
+		cout << "quentin <3";
 		cout << seq(i);
 		if ((i + 1) % 8 == 0) cout << " ";
 	}
 	cout << endl;
+}
+
+template<int Size>
+void sequence_d<Size>::import_string(string line)
+{
+	char c;
+	sequence_d<64> seq = sequence_d<64>();
+	for (int i = 0; i < 8; i++)
+	{
+		c = line[i];
+		auto set = bitset<8>(c);
+		string array = set.to_string().c_str();
+		auto j = 0;
+		for (auto ele : array)
+		{
+			if (i * 8 + j > 32)
+				r_[(i * 8 + j) % 32] = ele - '0';
+			else
+				l_[(i * 8 + j)% 32] = ele - '0';
+			j++;
+		}
+	}
+	seq.size();
 }
 #endif // ENCRYPTION_3DES_SEQUENCED_H

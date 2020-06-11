@@ -5,19 +5,20 @@
 #include "sequence.h"
 #include "sequence_d.h"
 #include "helper.cpp"
-#include "permutation.h"
-#include "key_gen.h"
-#include "s_box.h"
+
 #include "f.h"
+#include "crypt.h"
+#include <string>
 
 using namespace std;
 static void test_sequence();
 static void test_sequence_d();
-
+static void test_crypt();
 
 int main()
 {
-	test_sequence_d();
+	//test_sequence_d();
+	test_crypt();
 }
 
 static void test_sequence()
@@ -78,7 +79,7 @@ static void test_sequence_d()
 	seq.to_string();
 	seq = seq * seq2;
 	seq.to_string();
-	cout << seq;
+	cout << seq; 
 
 
 	affichage(seq);
@@ -200,6 +201,17 @@ static void test_sequence_d()
 	auto f_seq = f(seq_d);
 }
 
+static void test_crypt()
+{
+	string key_1 = "testtest";
+	sequence_d<64> key1 = sequence_d<64>();
+	sequence_d<64> key2 = sequence_d<64>();
+	key1.import_string(key_1);
+	key2.import_string("01234567");
+	crypt encryption = crypt(key1, key2);
+	encryption("C:\\Users\\Deeplygends\\Documents\\decrypt.txt", "C:\\Users\\Deeplygends\\Documents\\crypt.txt");
+	
+}
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
 // Déboguer le programme : F5 ou menu Déboguer > Démarrer le débogage
 

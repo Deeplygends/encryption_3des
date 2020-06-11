@@ -54,7 +54,7 @@ f::f(const sequence_d<64>& seq_d)
 			{2, 1, 14, 7, 4, 10, 8, 13, 15, 12, 9, 0, 3, 5, 6, 11}
 		}
 	};
-	auto* const sbox_array = new int** [8];
+	auto* sbox_array = new int** [8];
 
 	// Allocate an array for each element of the first array
 	for (auto x = 0; x < 8; ++x)
