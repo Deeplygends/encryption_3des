@@ -11,23 +11,23 @@
 #include "F.h"
 
 using namespace std;
-static void testSequence();
-static void testSequenceD();
+static void test_sequence();
+static void test_sequence_d();
 
 
 int main()
 {
-	testSequenceD();
+	test_sequence_d();
 }
 
-static void testSequence()
+static void test_sequence()
 {
-	sequence sequ = sequence(5);
-	sequence sequ2 = sequence(5);
+	auto sequ = sequence(5);
+	auto sequ2 = sequence(5);
 	list<sequence> list;
 	list.push_back(sequ);
 	list.push_back(sequ2);
-	sequence sequ3 = sequence(list);
+	auto sequ3 = sequence(list);
 
 	cout << "Sequence before editing : ";
 	sequ.stringify();
@@ -47,26 +47,26 @@ static void testSequence()
 	cout << "XOR between 2 sequence" << endl;
 	sequ.stringify();
 	sequ2.stringify();
-	sequence sequ4 = sequ * sequ2;
+	auto sequ4 = sequ * sequ2;
 	sequ4.stringify();
 
 	cout << "Sous sequence start 1 end 3";
 	sequ.stringify();
-	sequence sequ5 = sequ.sous_sequence(1, 3);
+	auto sequ5 = sequ.sous_sequence(1, 3);
 	sequ5.stringify();
 
 
 	cout << "Permutation of sequence (size 5) with vector (5 , 3 , 1 , 4 , 2 )";
 	sequ.stringify();
-	vector<int> vect = {5, 3, 1, 4, 2};
-	sequence sequ6 = sequ.permutation(vect);
+	vector<int> vect = { 5, 3, 1, 4, 2 };
+	auto sequ6 = sequ.permutation(vect);
 	sequ6.stringify();
 }
 
-static void testSequenceD()
+static void test_sequence_d()
 {
-	sequence_d<64> seqD = sequence_d<64>();
-	sequence seq = sequence();
+	auto seqD = sequence_d<64>();
+	auto seq = sequence();
 	/*SequenceD<8> seq2 = SequenceD<8>();
 
 
@@ -141,9 +141,9 @@ static void testSequenceD()
 	 */
 
 
-	//Test SBox
+	 //Test SBox
 
-	int tableau[2][2] = {{1, 2}, {3, 4}};
+	int tableau[2][2] = { {1, 2}, {3, 4} };
 	// Substitution Boxes (S-Boxes)
 	const int sboxes[8][4][16] = {
 		{
@@ -196,8 +196,8 @@ static void testSequenceD()
 		}
 	};
 
-	sequence_d<64> sequenceD = sequence_d<64>();
-	f f_ = f(sequenceD);
+	auto seq_d = sequence_d<64>();
+	auto f_seq = f(seq_d);
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
