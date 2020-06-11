@@ -12,7 +12,7 @@ public:
 	Sequence operator()(Sequence seq);
 
 private:
-	KeyGen keygen_;
+	key_gen keygen_;
 	S_fonction s_fonction_;
 };
 

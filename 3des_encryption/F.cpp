@@ -73,7 +73,7 @@ f::f(SequenceD<64> seqD)
 			}
 		}
 	}
-	keygen_ = KeyGen(seqD);
+	keygen_ = key_gen(seqD);
 	s_fonction_ = S_fonction(sbox_array);
 }
 

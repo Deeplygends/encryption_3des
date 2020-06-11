@@ -73,7 +73,7 @@ f_inv::f_inv(SequenceD<64> seqD)
 			}
 		}
 	}
-	keygen_ = KeyGen(seqD);
+	keygen_ = key_gen(seqD);
 	s_fonction_ = S_fonction(sbox_array);
 
 	this->key_to_use = 0;

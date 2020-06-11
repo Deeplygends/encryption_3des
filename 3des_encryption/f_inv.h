@@ -10,6 +10,6 @@ public:
 	SequenceD<48> keys[16]; //tableau qui stock les 16 clés;
 	int key_to_use;
 private:
-	KeyGen keygen_;
+	key_gen keygen_;
 	S_fonction s_fonction_;
 };
