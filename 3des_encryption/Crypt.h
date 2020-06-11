@@ -1,13 +1,14 @@
 #pragma once
 #include "SequenceD.h"
 
-class crypt
+class Crypt
 {
 public:
-	crypt(sequence_d<64> k1, sequence_d<64> k2);
-	void operator()(string file_in, string file_out);
+	Crypt(SequenceD<64> k1, SequenceD<64> k2);
+	void operator()(string fileIn, string fileOut);
 
 private:
-	sequence_d<64> k1_;
-	sequence_d<64> k2_;
+	SequenceD<64> k1;
+	SequenceD<64> k2;
 };
+

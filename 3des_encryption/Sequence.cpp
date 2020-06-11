@@ -2,16 +2,16 @@
 #include <time.h>
 #include <iostream>
 
-sequence::sequence(int taille_sequence) {
+Sequence::Sequence(int tailleSequence) {
 	srand(time(NULL) * clock());
-	for (int i = 0; i < taille_sequence; i++)
+	for (int i = 0; i < tailleSequence; i++)
 		sequence_.push_back(rand() % 2);
 	// random bit sequence generator of size <tailleSequence>
 }
 
-sequence::sequence(list<sequence>& liste_sequences) {
+Sequence::Sequence(list<Sequence>& listeSequences) {
 
-	for (sequence& seq : liste_sequences)
+	for (Sequence& seq : listeSequences)
 	{
 		for (int i = 0; i < seq.size(); i++)
 		{
@@ -20,7 +20,7 @@ sequence::sequence(list<sequence>& liste_sequences) {
 	}
 }
 
-string sequence::stringify()
+string Sequence::stringify()
 {
 	string s = "";
 	for (int i = 0; i < size(); i++)
@@ -30,21 +30,21 @@ string sequence::stringify()
 	return s;
 }
 
-int& sequence::operator[](int index) {
+int& Sequence::operator[](int index) {
 	// return modifiable <index>th bit of the sequence
 	return sequence_[index];
 }
 
-const int sequence::operator()(const int index) {
+const int Sequence::operator()(const int index) {
 	// return unmodifiable <index>th bit of the sequence
 	return sequence_.at(index);
 }
 
-double sequence::size() {
+double Sequence::size() {
 	return sequence_.size();
 }
 
-sequence& sequence::operator=(int& entier) {
+Sequence& Sequence::operator=(int& entier) {
 	int position = 0;
 	deque<int> binary;
 	do
@@ -63,7 +63,7 @@ sequence& sequence::operator=(int& entier) {
 	return *this;
 }
 
-void sequence::decalage(int shift) {
+void Sequence::decalage(int shift) {
 	// shift <shift> left bits to the right of the Sequence
 	int tmp;
 	while (shift != 0)
@@ -75,7 +75,7 @@ void sequence::decalage(int shift) {
 	}
 }
 
-sequence& sequence::operator*(sequence& seq) {
+Sequence& Sequence::operator*(Sequence& seq) {
 	// return XOR on two sequences
 	if (size() == seq.size())
 	{
@@ -86,9 +86,9 @@ sequence& sequence::operator*(sequence& seq) {
 	return *this;
 }
 
-sequence sequence::permutation(vector<int>& v) {
+Sequence Sequence::permutation(vector<int>& v) {
 	// return Sequence created from permutation
-	sequence sequ = sequence(size());
+	Sequence sequ = Sequence(size());
 	for (int i = 0; i < size(); i++)
 	{
 		//sequ[i] = sequence_[v[i] - 1];
@@ -97,8 +97,8 @@ sequence sequence::permutation(vector<int>& v) {
 	return sequ;
 }
 
-sequence sequence::sous_sequence(int debut, int fin) {
-	sequence sequ = sequence(fin - debut + 1);
+Sequence Sequence::sous_sequence(int debut, int fin) {
+	Sequence sequ = Sequence(fin - debut + 1);
 	if (debut < 0 || fin >= size())
 		return sequ;
 	int position = 0;

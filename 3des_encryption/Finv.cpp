@@ -1,8 +1,8 @@
-#include "f_inv.h"
+#include "Finv.h"
 #include "Permutation.h"
 
 
-f_inv::f_inv(sequence_d<64> seqD)
+Finv::Finv(SequenceD<64> seqD)
 {
 	int sboxes[8][4][16] = {
 		{
@@ -73,17 +73,17 @@ f_inv::f_inv(sequence_d<64> seqD)
 			}
 		}
 	}
-	keygen_ = key_gen(seqD);
-	s_fonction_ = s_fonction(sbox_array);
+	keygen_ = KeyGen(seqD);
+	s_fonction_ = S_fonction(sbox_array);
 
-	this->key_to_use = 0;
+	this->keyToUse = 0;
 	//Generation of all the key and put it in the revert order
 	for (int i = 0; i < 16; i++)
 		keys[15 - i] = keygen_.next();
 }
 
 
-sequence f_inv::operator()(sequence seq)
+Sequence Finv::operator()(Sequence seq)
 {
 	// expansion/permutation
 	vector<int> e_p = { 32, 1, 2, 3, 4, 5, 4, 5,
@@ -103,26 +103,26 @@ sequence f_inv::operator()(sequence seq)
 				   19, 13, 30, 6,
 				   22, 11, 4, 25 };
 
-	permutation<32, 48> exp_perm;
-	sequence_d<32> seqD32 = sequence_d<32>(seq.sous_sequence(0, seq.size() / 2), seq.sous_sequence(seq.size() / 2 + 1, seq.size()));
-	sequence_d<48> seq48 = exp_perm(seqD32, e_p);
+	Permutation<32, 48> exp_perm;
+	SequenceD<32> seqD32 = SequenceD<32>(seq.sous_sequence(0, seq.size() / 2), seq.sous_sequence(seq.size() / 2 + 1, seq.size()));
+	SequenceD<48> seq48 = exp_perm(seqD32, e_p);
 
 	//TO DO : Remplacer cette ligne par l'indice dans le tableau;
 	//SequenceD<48> key = keygen_.next();
-	sequence_d<48> key = keys[key_to_use];
-	key_to_use++;
+	SequenceD<48> key = keys[keyToUse];
+	keyToUse++;
 
 	// XOR avec sous-clé
-	sequence_d<48> xor_seqD = seq48 * key;
-	list<sequence> listSeq({ xor_seqD.left(),xor_seqD.right() });
+	SequenceD<48> xor_seqD = seq48 * key;
+	list<Sequence> listSeq({ xor_seqD.left(),xor_seqD.right() });
 
 
 	//listSeq.push_back(xor_seqD.left());
 	//listSeq.push_back(xor_seqD.right());
-	sequence xor_seq = sequence(listSeq);
+	Sequence xor_seq = Sequence(listSeq);
 
 	// S_fonction (sboxes)
-	sequence sub = s_fonction_(xor_seq);
+	Sequence sub = s_fonction_(xor_seq);
 
 	// permutation
 	return sub.permutation(p);

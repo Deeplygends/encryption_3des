@@ -1,26 +1,27 @@
 using namespace std;
 #include "Sbox.h"
+#include "math.h"
 
-sbox::sbox(int** matrice) {
-	this->matrice_ = matrice;
+Sbox::Sbox(int** matrice) {
+	this->matrice = matrice;
 }
 
-sbox::~sbox() {
-	delete matrice_;
+Sbox::~Sbox() {
+	delete matrice;
 }
 
-sbox::sbox(const sbox& sbox) {
-	this->matrice_ = sbox.matrice_;
+Sbox::Sbox(const Sbox& sbox) {
+	this->matrice = sbox.matrice;
 }
 
-sbox& sbox::operator=(const sbox& sbox) {
-	matrice_ = sbox.matrice_;
+Sbox& Sbox::operator=(const Sbox& sbox) {
+	matrice = sbox.matrice;
 	return *this;
 }
 
-sequence sbox::operator()(sequence seq) {
+Sequence Sbox::operator()(Sequence seq) {
 	//TODO : check seq.size() == 6
-	sequence rowSeq = sequence(2);
+	Sequence rowSeq = Sequence(2);
 	rowSeq[0] = seq(0);
 	rowSeq[1] = seq(5);
 	int row = 0;
@@ -28,13 +29,13 @@ sequence sbox::operator()(sequence seq) {
 		row += rowSeq(i) * pow(2, i);
 	}
 
-	sequence colSeq = sequence(seq.sous_sequence(1, 4));
+	Sequence colSeq = Sequence(seq.sous_sequence(1, 4));
 	int col = 0;
 	for (int i = 0; i < colSeq.size(); i++) {
 		col += colSeq(i) * pow(2, i);
 	}
 
-	auto res = matrice_[row][col];
-	sequence resSeq = res;
+	int res = matrice[row][col];
+	Sequence resSeq = res;
 	return resSeq;
 }

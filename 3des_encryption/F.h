@@ -6,14 +6,14 @@ using namespace std;
 #include "KeyGen.h"
 #include "S_fonction.h"
 
-class f {
+class F {
 public:
-	f(sequence_d<64>);
-	sequence operator()(sequence seq);
+	F(SequenceD<64>);
+	Sequence operator()(Sequence seq);
 
 private:
-	key_gen keygen_;
-	s_fonction s_fonction_;
+	KeyGen keygen_;
+	S_fonction s_fonction_;
 };
 
 #endif // ENCRYPTION_3DES_F_H

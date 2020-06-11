@@ -2,25 +2,25 @@
 #include <fstream>
 
 #include "DES.h"
-#include "des_inv.h"
+#include "DESinv.h"
 
 
-decrypt::decrypt(sequence_d<64> k1, sequence_d<64> k2)
+Decrypt::Decrypt(SequenceD<64> k1, SequenceD<64> k2)
 {
-	this->k1_ = k1;
-	this->k2_ = k2;
+	this->k1 = k1;
+	this->k2 = k2;
 }
 
-void decrypt::operator()(string file_in, string file_out)
+void Decrypt::operator()(string fileIn, string fileOut)
 {
-	des cdes = des(k2_);
-	des_inv ddes = des_inv(k1_);
-	list<sequence_d<64>> listSeq;
-	sequence_d<64> seq;
+	DES cdes = DES(k2);
+	DESinv ddes = DESinv(k1);
+	list<SequenceD<64>> listSeq;
+	SequenceD<64> seq;
 
 	// acces fichier -> recup contenu
 	ifstream readFile;
-	readFile.open(file_in);
+	readFile.open(fileIn);
 	if (readFile.is_open())
 	{
 		while (!readFile.eof())
@@ -34,9 +34,9 @@ void decrypt::operator()(string file_in, string file_out)
 
 	// ecriture fichier
 	ofstream writeFile;
-	writeFile.open(file_out);
+	writeFile.open(fileOut);
 
-	for (sequence_d<64> decryptedSeq : listSeq)
+	for (SequenceD<64> decryptedSeq : listSeq)
 	{
 		writeFile << decryptedSeq;
 	}
