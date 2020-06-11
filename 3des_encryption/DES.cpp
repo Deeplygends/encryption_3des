@@ -24,11 +24,11 @@ SequenceD<64> des::operator()(SequenceD<64> seq_d)
 	SequenceD<64> roundSeqD = permutation(seq_d, initial_perm);
 
 	// F fonction
-	F f = F(key_);
+	f f_ = f(key_);
 
 	for (int i = 0; i < 16; i++)
 	{
-		Sequence seqRight = f(roundSeqD.right());
+		Sequence seqRight = f_(roundSeqD.right());
 		Sequence roundSeq = seqRight * roundSeqD.left();
 		roundSeqD = SequenceD<64>(roundSeq.sous_sequence(0, roundSeq.size() / 2), roundSeq.sous_sequence(roundSeq.size() / 2 + 1, roundSeq.size()));
 	}

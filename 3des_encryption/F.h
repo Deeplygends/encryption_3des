@@ -6,9 +6,9 @@ using namespace std;
 #include "KeyGen.h"
 #include "S_fonction.h"
 
-class F {
+class f {
 public:
-	F(SequenceD<64>);
+	f(SequenceD<64>);
 	Sequence operator()(Sequence seq);
 
 private:

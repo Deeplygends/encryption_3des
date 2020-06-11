@@ -2,7 +2,7 @@
 
 #include "Permutation.h"
 
-F::F(SequenceD<64> seqD)
+f::f(SequenceD<64> seqD)
 {
 	int sboxes[8][4][16] = {
 		{
@@ -77,7 +77,7 @@ F::F(SequenceD<64> seqD)
 	s_fonction_ = S_fonction(sbox_array);
 }
 
-Sequence F::operator()(Sequence seq)
+Sequence f::operator()(Sequence seq)
 {
 	// expansion/permutation
 	vector<int> e_p = { 32, 1, 2, 3, 4, 5, 4, 5,
