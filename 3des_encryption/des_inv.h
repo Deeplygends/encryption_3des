@@ -4,8 +4,8 @@
 class des_inv
 {
 public:
-	des_inv(SequenceD<64>);
-	SequenceD<64> operator()(SequenceD<64> seq_d);
+	des_inv(sequence_d<64>);
+	sequence_d<64> operator()(sequence_d<64> seq_d);
 private:
-	SequenceD<64> key_;
+	sequence_d<64> key_;
 };

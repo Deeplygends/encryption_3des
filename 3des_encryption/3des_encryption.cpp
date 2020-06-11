@@ -65,7 +65,7 @@ static void testSequence()
 
 static void testSequenceD()
 {
-	SequenceD<64> seqD = SequenceD<64>();
+	sequence_d<64> seqD = sequence_d<64>();
 	sequence seq = sequence();
 	/*SequenceD<8> seq2 = SequenceD<8>();
 
@@ -196,7 +196,7 @@ static void testSequenceD()
 		}
 	};
 
-	SequenceD<64> sequenceD = SequenceD<64>();
+	sequence_d<64> sequenceD = sequence_d<64>();
 	f f_ = f(sequenceD);
 }
 

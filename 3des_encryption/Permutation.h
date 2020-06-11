@@ -7,12 +7,12 @@ using namespace std;
 template<int SizeIn, int SizeOut>
 class permutation {
 public:
-	SequenceD<SizeOut> operator()(SequenceD<SizeIn>, vector<int>);
+	sequence_d<SizeOut> operator()(sequence_d<SizeIn>, vector<int>);
 };
 
 template<int SizeIn, int SizeOut>
-SequenceD<SizeOut> permutation<SizeIn, SizeOut>::operator()(SequenceD<SizeIn> seq_d, vector<int> v) {
-	SequenceD<SizeOut> seq = SequenceD<SizeOut>();
+sequence_d<SizeOut> permutation<SizeIn, SizeOut>::operator()(sequence_d<SizeIn> seq_d, vector<int> v) {
+	sequence_d<SizeOut> seq = sequence_d<SizeOut>();
 
 	//v[i]-1 if vector contains values starting from 1 instead of 0
 	for (auto i = 0; i < SizeOut; i++) {
