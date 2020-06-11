@@ -16,13 +16,13 @@ private:
 public:
 	sequence(int taille_sequence = 4);
 
-	sequence(list<sequence>& listeSequences);
+	sequence(list<sequence>& liste_sequences);
 
 	int& operator[](int index);
 
-	const int operator()(int index);
+	int operator()(int index);
 
-	double size();
+	double size() const;
 
 	sequence& operator=(int& entier);
 
