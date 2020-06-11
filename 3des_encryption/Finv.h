@@ -7,7 +7,7 @@ class Finv
 	public:
 		Finv(SequenceD<64>);
 		Sequence operator()(Sequence seq);
-		static SequenceD<48> keys[16]; //tableau qui stock les 16 clés;
+		SequenceD<48> keys[16]; //tableau qui stock les 16 clés;
 		int keyToUse;
 	private :
 		KeyGen keygen_;
