@@ -97,7 +97,7 @@ Sequence f::operator()(Sequence seq)
 				   19, 13, 30, 6,
 				   22, 11, 4, 25 };
 
-	Permutation<32, 48> exp_perm;
+	permutation<32, 48> exp_perm;
 	SequenceD<32> seqD32 = SequenceD<32>(seq.sous_sequence(0, seq.size() / 2), seq.sous_sequence(seq.size() / 2 + 1, seq.size()));
 	SequenceD<48> seq48 = exp_perm(seqD32, e_p);
 	SequenceD<48> key = keygen_.next();

@@ -4,19 +4,19 @@
 using namespace std;
 #include "SequenceD.h"
 
-template<int sizeIn, int sizeOut>
-class Permutation {
+template<int SizeIn, int SizeOut>
+class permutation {
 public:
-	SequenceD<sizeOut> operator()(SequenceD<sizeIn>, vector<int>);
+	SequenceD<SizeOut> operator()(SequenceD<SizeIn>, vector<int>);
 };
 
-template<int sizeIn, int sizeOut>
-SequenceD<sizeOut> Permutation<sizeIn, sizeOut>::operator()(SequenceD<sizeIn> seqD, vector<int> v) {
-	SequenceD<sizeOut> seq = SequenceD<sizeOut>();
+template<int SizeIn, int SizeOut>
+SequenceD<SizeOut> permutation<SizeIn, SizeOut>::operator()(SequenceD<SizeIn> seq_d, vector<int> v) {
+	SequenceD<SizeOut> seq = SequenceD<SizeOut>();
 
 	//v[i]-1 if vector contains values starting from 1 instead of 0
-	for (int i = 0; i < sizeOut; i++) {
-		seq[i] = v[i] < sizeIn ? seqD(v[i]) : 0;
+	for (auto i = 0; i < SizeOut; i++) {
+		seq[i] = v[i] < SizeIn ? seq_d(v[i]) : 0;
 	}
 	return seq;
 }
