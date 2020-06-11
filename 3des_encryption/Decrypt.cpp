@@ -13,7 +13,7 @@ decrypt::decrypt(SequenceD<64> k1, SequenceD<64> k2)
 
 void decrypt::operator()(string file_in, string file_out)
 {
-	DES cdes = DES(k2_);
+	des cdes = des(k2_);
 	DESinv ddes = DESinv(k1_);
 	list<SequenceD<64>> listSeq;
 	SequenceD<64> seq;

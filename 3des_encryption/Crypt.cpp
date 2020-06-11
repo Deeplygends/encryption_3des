@@ -14,7 +14,7 @@ crypt::crypt(SequenceD<64> k1, SequenceD<64> k2)
 
 void crypt::operator()(string file_in, string file_out)
 {
-	DES cdes = DES(k1_);
+	des cdes = des(k1_);
 	DESinv ddes = DESinv(k2_);
 	list<SequenceD<64>> listSeq;
 	SequenceD<64> seq;

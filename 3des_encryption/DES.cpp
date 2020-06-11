@@ -4,12 +4,12 @@
 #include "F.h"
 #include "Permutation.h"
 
-DES::DES(SequenceD<64> key)
+des::des(SequenceD<64> key)
 {
-	this->key = key;
+	this->key_ = key;
 }
 
-SequenceD<64> DES::operator()(SequenceD<64> seqD)
+SequenceD<64> des::operator()(SequenceD<64> seq_d)
 {
 	vector<int> initial_perm{ 58, 50, 42, 34, 26, 18, 10, 2,
 							 60, 52, 44, 36, 28, 20, 12, 4,
@@ -21,10 +21,10 @@ SequenceD<64> DES::operator()(SequenceD<64> seqD)
 							 63, 55, 47, 39, 31, 23, 15, 7 };
 
 	Permutation<64, 64> permutation;
-	SequenceD<64> roundSeqD = permutation(seqD, initial_perm);
+	SequenceD<64> roundSeqD = permutation(seq_d, initial_perm);
 
 	// F fonction
-	F f = F(key);
+	F f = F(key_);
 
 	for (int i = 0; i < 16; i++)
 	{
