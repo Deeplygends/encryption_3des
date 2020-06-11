@@ -6,22 +6,22 @@
 #include "DESinv.h"
 
 
-Crypt::Crypt(SequenceD<64> k1, SequenceD<64> k2)
+crypt::crypt(SequenceD<64> k1, SequenceD<64> k2)
 {
-	this->k1 = k1;
-	this->k2 = k2;
+	this->k1_ = k1;
+	this->k2_ = k2;
 }
 
-void Crypt::operator()(string fileIn, string fileOut)
+void crypt::operator()(string file_in, string file_out)
 {
-	DES cdes = DES(k1);
-	DESinv ddes = DESinv(k2);
+	DES cdes = DES(k1_);
+	DESinv ddes = DESinv(k2_);
 	list<SequenceD<64>> listSeq;
 	SequenceD<64> seq;
 
 	// acces fichier -> recup contenu
 	ifstream readFile;
-	readFile.open(fileIn);
+	readFile.open(file_in);
 	if (readFile.is_open())
 	{
 		while (!readFile.eof())
@@ -35,7 +35,7 @@ void Crypt::operator()(string fileIn, string fileOut)
 
 	// ecriture fichier
 	ofstream writeFile;
-	writeFile.open(fileOut);
+	writeFile.open(file_out);
 
 	for (SequenceD<64> cryptedSeq : listSeq)
 	{
