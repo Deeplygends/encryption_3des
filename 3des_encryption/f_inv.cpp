@@ -1,5 +1,5 @@
 #include "f_inv.h"
-#include "Permutation.h"
+#include "permutation.h"
 
 
 f_inv::f_inv(const sequence_d<64>& seq_d)

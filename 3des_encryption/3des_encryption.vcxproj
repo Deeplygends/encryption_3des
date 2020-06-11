@@ -148,33 +148,33 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="3des_encryption.cpp" />
-    <ClCompile Include="Crypt.cpp" />
-    <ClCompile Include="Decrypt.cpp" />
-    <ClCompile Include="DES.cpp" />
+    <ClCompile Include="crypt.cpp" />
+    <ClCompile Include="decrypt.cpp" />
+    <ClCompile Include="des.cpp" />
     <ClCompile Include="des_inv.cpp" />
-    <ClCompile Include="F.cpp" />
+    <ClCompile Include="f.cpp" />
     <ClCompile Include="f_inv.cpp" />
     <ClCompile Include="helper.cpp" />
-    <ClCompile Include="KeyGen.cpp" />
-    <ClCompile Include="Permutation.cpp" />
+    <ClCompile Include="key_gen.cpp" />
+    <ClCompile Include="permutation.cpp" />
     <ClCompile Include="s_box.cpp" />
-    <ClCompile Include="Sequence.cpp" />
-    <ClCompile Include="SequenceD.cpp" />
-    <ClCompile Include="S_fonction.cpp" />
+    <ClCompile Include="sequence.cpp" />
+    <ClCompile Include="sequence_d.cpp" />
+    <ClCompile Include="s_fonction.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Crypt.h" />
-    <ClInclude Include="Decrypt.h" />
-    <ClInclude Include="DES.h" />
+    <ClInclude Include="crypt.h" />
+    <ClInclude Include="decrypt.h" />
+    <ClInclude Include="des.h" />
     <ClInclude Include="des_inv.h" />
-    <ClInclude Include="F.h" />
+    <ClInclude Include="f.h" />
     <ClInclude Include="f_inv.h" />
-    <ClInclude Include="KeyGen.h" />
-    <ClInclude Include="Permutation.h" />
+    <ClInclude Include="key_gen.h" />
+    <ClInclude Include="permutation.h" />
     <ClInclude Include="s_box.h" />
-    <ClInclude Include="Sequence.h" />
-    <ClInclude Include="SequenceD.h" />
-    <ClInclude Include="S_fonction.h" />
+    <ClInclude Include="sequence.h" />
+    <ClInclude Include="sequence_d.h" />
+    <ClInclude Include="s_fonction.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,4 +1,4 @@
-#include "S_fonction.h"
+#include "s_fonction.h"
 
 s_fonction::s_fonction(int*** sboxes) {
 	this->s_boxes_ = sboxes;

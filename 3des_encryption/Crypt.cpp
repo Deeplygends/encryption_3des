@@ -1,9 +1,9 @@
-#include "Crypt.h"
+#include "crypt.h"
 
 #include <fstream>
 #include <utility>
 
-#include "DES.h"
+#include "des.h"
 #include "des_inv.h"
 
 

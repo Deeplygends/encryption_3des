@@ -1,4 +1,4 @@
-#include "Sequence.h"
+#include "sequence.h"
 #include <ctime>
 #include <iostream>
 

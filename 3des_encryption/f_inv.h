@@ -1,6 +1,6 @@
 #pragma once
-#include "KeyGen.h"
-#include "S_fonction.h"
+#include "key_gen.h"
+#include "s_fonction.h"
 
 class f_inv
 {

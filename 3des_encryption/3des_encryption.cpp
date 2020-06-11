@@ -2,13 +2,13 @@
 //
 
 #include <iostream>
-#include "Sequence.h"
-#include "SequenceD.h"
+#include "sequence.h"
+#include "sequence_d.h"
 #include "helper.cpp"
-#include "Permutation.h"
-#include "KeyGen.h"
+#include "permutation.h"
+#include "key_gen.h"
 #include "s_box.h"
-#include "F.h"
+#include "f.h"
 
 using namespace std;
 static void test_sequence();

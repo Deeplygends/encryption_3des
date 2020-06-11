@@ -1,6 +1,6 @@
-#include "F.h"
+#include "f.h"
 
-#include "Permutation.h"
+#include "permutation.h"
 
 f::f(const sequence_d<64>& seq_d)
 {

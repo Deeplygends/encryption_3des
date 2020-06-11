@@ -1,8 +1,8 @@
-#include "Decrypt.h"
+#include "decrypt.h"
 #include <fstream>
 #include <utility>
 
-#include "DES.h"
+#include "des.h"
 #include "des_inv.h"
 
 

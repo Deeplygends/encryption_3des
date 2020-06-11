@@ -1,10 +1,10 @@
-#include "DES.h"
+#include "des.h"
 
 #include <utility>
 
 
-#include "F.h"
-#include "Permutation.h"
+#include "f.h"
+#include "permutation.h"
 
 des::des(const sequence_d<64>& key)
 {

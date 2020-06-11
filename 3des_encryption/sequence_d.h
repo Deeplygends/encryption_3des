@@ -2,7 +2,7 @@
 #define ENCRYPTION_3DES_SEQUENCED_H
 
 #include <iostream>
-#include "Sequence.h"
+#include "sequence.h"
 #include <string>
 #include <sstream>
 #include <bitset>

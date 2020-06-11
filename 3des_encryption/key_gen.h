@@ -1,7 +1,7 @@
 #ifndef ENCRYPTION_3DES_KEYGEN_H
 #define ENCRYPTION_3DES_KEYGEN_H
 
-#include "SequenceD.h"
+#include "sequence_d.h"
 using namespace std;
 
 class key_gen {

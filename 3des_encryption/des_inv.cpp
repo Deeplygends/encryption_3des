@@ -1,7 +1,7 @@
 #include "des_inv.h"
 #include <utility>
 #include "f_inv.h"
-#include "Permutation.h"
+#include "permutation.h"
 
 des_inv::des_inv(const sequence_d<64>& key)
 {

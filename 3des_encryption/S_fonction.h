@@ -1,7 +1,7 @@
 #ifndef ENCRYPTION_3DES_S_FONCTION_H
 #define ENCRYPTION_3DES_S_FONCTION_H
 
-#include "Sequence.h"
+#include "sequence.h"
 #include "s_box.h"
 
 class s_fonction {

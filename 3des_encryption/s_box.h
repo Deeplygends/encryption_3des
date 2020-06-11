@@ -1,6 +1,6 @@
 #ifndef ENCRYPTION_3DES_SBOX_H
 #define ENCRYPTION_3DES_SBOX_H
-#include "SequenceD.h"
+#include "sequence_d.h"
 
 
 class s_box {

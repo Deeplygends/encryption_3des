@@ -2,9 +2,9 @@
 #define ENCRYPTION_3DES_F_H
 using namespace std;
 
-#include "SequenceD.h"
-#include "KeyGen.h"
-#include "S_fonction.h"
+#include "sequence_d.h"
+#include "key_gen.h"
+#include "s_fonction.h"
 
 class f {
 public:

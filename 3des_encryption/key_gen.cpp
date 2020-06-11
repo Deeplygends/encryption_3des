@@ -1,5 +1,5 @@
-#include "KeyGen.h"
-#include "Permutation.h"
+#include "key_gen.h"
+#include "permutation.h"
 
 key_gen::key_gen(const sequence_d<64>& seq_d) {
 	permutation<64, 56> permutation;

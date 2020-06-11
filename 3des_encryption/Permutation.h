@@ -2,7 +2,7 @@
 #define ENCRYPTION_3DES_PERMUTATION_H
 
 using namespace std;
-#include "SequenceD.h"
+#include "sequence_d.h"
 
 template<int SizeIn, int SizeOut>
 class permutation {
