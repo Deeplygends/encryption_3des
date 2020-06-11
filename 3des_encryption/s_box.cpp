@@ -1,25 +1,25 @@
 using namespace std;
-#include "Sbox.h"
+#include "s_box.h"
 #include "math.h"
 
-Sbox::Sbox(int** matrice) {
-	this->matrice = matrice;
+s_box::s_box(int** matrice) {
+	this->matrice_ = matrice;
 }
 
-Sbox::~Sbox() {
-	delete matrice;
+s_box::~s_box() {
+	delete matrice_;
 }
 
-Sbox::Sbox(const Sbox& sbox) {
-	this->matrice = sbox.matrice;
+s_box::s_box(const s_box& sbox) {
+	this->matrice_ = sbox.matrice_;
 }
 
-Sbox& Sbox::operator=(const Sbox& sbox) {
-	matrice = sbox.matrice;
+s_box& s_box::operator=(const s_box& sbox) {
+	matrice_ = sbox.matrice_;
 	return *this;
 }
 
-Sequence Sbox::operator()(Sequence seq) {
+Sequence s_box::operator()(Sequence seq) {
 	//TODO : check seq.size() == 6
 	Sequence rowSeq = Sequence(2);
 	rowSeq[0] = seq(0);
@@ -35,7 +35,7 @@ Sequence Sbox::operator()(Sequence seq) {
 		col += colSeq(i) * pow(2, i);
 	}
 
-	int res = matrice[row][col];
+	int res = matrice_[row][col];
 	Sequence resSeq = res;
 	return resSeq;
 }

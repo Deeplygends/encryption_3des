@@ -7,7 +7,7 @@
 #include "helper.cpp"
 #include "Permutation.h"
 #include "KeyGen.h"
-#include "Sbox.h"
+#include "s_box.h"
 #include "F.h"
 
 using namespace std;

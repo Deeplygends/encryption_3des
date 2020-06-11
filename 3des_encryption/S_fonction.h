@@ -2,7 +2,7 @@
 #define ENCRYPTION_3DES_S_FONCTION_H
 
 #include "Sequence.h"
-#include "Sbox.h"
+#include "s_box.h"
 
 class s_fonction {
 public:

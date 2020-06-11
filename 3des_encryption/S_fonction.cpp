@@ -20,7 +20,7 @@ s_fonction& s_fonction::operator=(const s_fonction& s_fonction) {
 Sequence s_fonction::operator()(Sequence seq) {
 	list<Sequence> listSeq;
 	for (int i = 0; i < 8; i++) {
-		Sbox sbox = Sbox(s_boxes_[i]);
+		s_box sbox = s_box(s_boxes_[i]);
 		listSeq.push_back(sbox(seq.sous_sequence(i * 8, i * 8 + 5)));
 	}
 	return Sequence(listSeq);
