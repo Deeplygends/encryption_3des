@@ -1,5 +1,6 @@
 #include "Decrypt.h"
 #include <fstream>
+#include <utility>
 
 #include "DES.h"
 #include "des_inv.h"
@@ -7,38 +8,38 @@
 
 decrypt::decrypt(sequence_d<64> k1, sequence_d<64> k2)
 {
-	this->k1_ = k1;
-	this->k2_ = k2;
+	this->k1_ = std::move(k1);
+	this->k2_ = std::move(k2);
 }
 
-void decrypt::operator()(string file_in, string file_out)
+void decrypt::operator()(const string& file_in, const string& file_out) const
 {
-	des cdes = des(k2_);
-	des_inv ddes = des_inv(k1_);
-	list<sequence_d<64>> listSeq;
+	auto cdes = des(k2_);
+	auto ddes = des_inv(k1_);
+	list<sequence_d<64>> list_seq;
 	sequence_d<64> seq;
 
 	// acces fichier -> recup contenu
-	ifstream readFile;
-	readFile.open(file_in);
-	if (readFile.is_open())
+	ifstream read_file;
+	read_file.open(file_in);
+	if (read_file.is_open())
 	{
-		while (!readFile.eof())
+		while (!read_file.eof())
 		{
-			readFile >> seq;
+			read_file >> seq;
 			seq = ddes(cdes(ddes(seq)));
-			listSeq.push_back(seq);
+			list_seq.push_back(seq);
 		}
 	}
-	readFile.close();
+	read_file.close();
 
 	// ecriture fichier
-	ofstream writeFile;
-	writeFile.open(file_out);
+	ofstream write_file;
+	write_file.open(file_out);
 
-	for (sequence_d<64> decryptedSeq : listSeq)
+	for (const auto& decrypted_seq : list_seq)
 	{
-		writeFile << decryptedSeq;
+		write_file << decrypted_seq;
 	}
-	writeFile.close();
+	write_file.close();
 }

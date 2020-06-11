@@ -1,6 +1,7 @@
 #include "Crypt.h"
 
 #include <fstream>
+#include <utility>
 
 #include "DES.h"
 #include "des_inv.h"
@@ -8,8 +9,8 @@
 
 crypt::crypt(sequence_d<64> k1, sequence_d<64> k2)
 {
-	this->k1_ = k1;
-	this->k2_ = k2;
+	this->k1_ = std::move(k1);
+	this->k2_ = std::move(k2);
 }
 
 void crypt::operator()(const string& file_in, const string& file_out) const
