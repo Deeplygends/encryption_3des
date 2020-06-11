@@ -19,9 +19,9 @@ s_box& s_box::operator=(const s_box& sbox) {
 	return *this;
 }
 
-Sequence s_box::operator()(Sequence seq) {
+sequence s_box::operator()(sequence seq) {
 	//TODO : check seq.size() == 6
-	Sequence rowSeq = Sequence(2);
+	sequence rowSeq = sequence(2);
 	rowSeq[0] = seq(0);
 	rowSeq[1] = seq(5);
 	int row = 0;
@@ -29,13 +29,13 @@ Sequence s_box::operator()(Sequence seq) {
 		row += rowSeq(i) * pow(2, i);
 	}
 
-	Sequence colSeq = Sequence(seq.sous_sequence(1, 4));
+	sequence colSeq = sequence(seq.sous_sequence(1, 4));
 	int col = 0;
 	for (int i = 0; i < colSeq.size(); i++) {
 		col += colSeq(i) * pow(2, i);
 	}
 
 	int res = matrice_[row][col];
-	Sequence resSeq = res;
+	sequence resSeq = res;
 	return resSeq;
 }

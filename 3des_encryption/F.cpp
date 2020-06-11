@@ -77,7 +77,7 @@ f::f(SequenceD<64> seqD)
 	s_fonction_ = s_fonction(sbox_array);
 }
 
-Sequence f::operator()(Sequence seq)
+sequence f::operator()(sequence seq)
 {
 	// expansion/permutation
 	vector<int> e_p = { 32, 1, 2, 3, 4, 5, 4, 5,
@@ -104,15 +104,15 @@ Sequence f::operator()(Sequence seq)
 
 	// XOR avec sous-clé
 	SequenceD<48> xor_seqD = seq48 * key;
-	list<Sequence> listSeq({ xor_seqD.left(),xor_seqD.right() });
+	list<sequence> listSeq({ xor_seqD.left(),xor_seqD.right() });
 
 
 	//listSeq.push_back(xor_seqD.left());
 	//listSeq.push_back(xor_seqD.right());
-	Sequence xor_seq = Sequence(listSeq);
+	sequence xor_seq = sequence(listSeq);
 
 	// S_fonction (sboxes)
-	Sequence sub = s_fonction_(xor_seq);
+	sequence sub = s_fonction_(xor_seq);
 
 	// permutation
 	return sub.permutation(p);

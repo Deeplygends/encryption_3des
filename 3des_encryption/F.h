@@ -9,7 +9,7 @@ using namespace std;
 class f {
 public:
 	f(SequenceD<64>);
-	Sequence operator()(Sequence seq);
+	sequence operator()(sequence seq);
 
 private:
 	key_gen keygen_;

@@ -9,11 +9,11 @@
 using namespace std;
 
 template<int Size = 4>
-class SequenceD : private Sequence {
+class SequenceD : private sequence {
 public:
 	SequenceD();
 
-	SequenceD(Sequence seq1, Sequence seq2);
+	SequenceD(sequence seq1, sequence seq2);
 
 	int& operator[](int index);
 
@@ -25,9 +25,9 @@ public:
 
 	SequenceD& operator*(SequenceD<Size>& seq);
 
-	Sequence& right();
+	sequence& right();
 
-	Sequence& left();
+	sequence& left();
 
 	template<int>
 	friend ostream& operator<<(ostream&, SequenceD<64>);
@@ -38,18 +38,18 @@ public:
 	void affichage();
 
 private:
-	Sequence l_;
-	Sequence r_;
+	sequence l_;
+	sequence r_;
 };
 
 template<int Size>
 SequenceD<Size>::SequenceD() {
-	l_ = Sequence(Size / 2);
-	r_ = Sequence(Size / 2);
+	l_ = sequence(Size / 2);
+	r_ = sequence(Size / 2);
 }
 
 template<int Size>
-SequenceD<Size>::SequenceD(Sequence seq1, Sequence seq2) {
+SequenceD<Size>::SequenceD(sequence seq1, sequence seq2) {
 	l_ = seq1;
 	r_ = seq2;
 }
@@ -86,12 +86,12 @@ void SequenceD<Size>::decalage(int shift) {
 }
 
 template<int Size>
-Sequence& SequenceD<Size>::right() {
+sequence& SequenceD<Size>::right() {
 	return r_;
 }
 
 template<int Size>
-Sequence& SequenceD<Size>::left() {
+sequence& SequenceD<Size>::left() {
 	return l_;
 }
 
@@ -109,7 +109,7 @@ ostream& operator<<(ostream& os, SequenceD<Size> seq) {
 		return os;
 	string s = "";
 	for (int i = 0; i < 4; i++) {
-		Sequence seq8bits = seq.left().sous_sequence(i * 8, i * 8 + 7);
+		sequence seq8bits = seq.left().sous_sequence(i * 8, i * 8 + 7);
 		string byteString = seq8bits.stringify();
 		bitset<8> byte;
 		for (int j = 7; j > -1; j--)
@@ -118,7 +118,7 @@ ostream& operator<<(ostream& os, SequenceD<Size> seq) {
 		s += c;
 	}
 	for (int i = 0; i < 4; i++) {
-		Sequence seq8bits = seq.right().sous_sequence(i * 8, i * 8 + 7);
+		sequence seq8bits = seq.right().sous_sequence(i * 8, i * 8 + 7);
 		string byteString = seq8bits.stringify();
 		bitset<8> byte;
 		for (int j = 7; j > -1; j--)

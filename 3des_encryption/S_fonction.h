@@ -11,7 +11,7 @@ public:
 	~s_fonction();
 	s_fonction(const s_fonction& s_fonction);
 	s_fonction& operator=(const s_fonction& s_fonction);
-	Sequence operator()(Sequence seq);
+	sequence operator()(sequence seq);
 
 private:
 	int*** s_boxes_;

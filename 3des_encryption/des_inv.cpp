@@ -28,8 +28,8 @@ SequenceD<64> des_inv::operator()(SequenceD<64> seq_d)
 
 	for (int i = 0; i < 16; i++)
 	{
-		Sequence seqRight = f(roundSeqD.right());
-		Sequence roundSeq = seqRight * roundSeqD.left();
+		sequence seqRight = f(roundSeqD.right());
+		sequence roundSeq = seqRight * roundSeqD.left();
 		roundSeqD = SequenceD<64>(roundSeq.sous_sequence(0, roundSeq.size() / 2), roundSeq.sous_sequence(roundSeq.size() / 2 + 1, roundSeq.size()));
 	}
 	SequenceD<64> swappedSeqD = SequenceD<64>(roundSeqD.right(), roundSeqD.left());

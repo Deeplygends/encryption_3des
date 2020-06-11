@@ -6,7 +6,7 @@ class f_inv
 {
 public:
 	f_inv(SequenceD<64>);
-	Sequence operator()(Sequence seq);
+	sequence operator()(sequence seq);
 	SequenceD<48> keys[16]; //tableau qui stock les 16 clés;
 	int key_to_use;
 private:

@@ -12,7 +12,7 @@ public:
 	~s_box();
 	s_box(const s_box& sbox);
 	s_box& operator=(const s_box& sbox);
-	Sequence operator()(Sequence);
+	sequence operator()(sequence);
 };
 
 #endif // ENCRYPTION_3DES_SBOX_H
