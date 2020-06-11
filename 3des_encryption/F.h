@@ -13,7 +13,7 @@ public:
 
 private:
 	key_gen keygen_;
-	S_fonction s_fonction_;
+	s_fonction s_fonction_;
 };
 
 #endif // ENCRYPTION_3DES_F_H

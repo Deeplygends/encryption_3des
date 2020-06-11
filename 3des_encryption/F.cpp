@@ -74,7 +74,7 @@ f::f(SequenceD<64> seqD)
 		}
 	}
 	keygen_ = key_gen(seqD);
-	s_fonction_ = S_fonction(sbox_array);
+	s_fonction_ = s_fonction(sbox_array);
 }
 
 Sequence f::operator()(Sequence seq)

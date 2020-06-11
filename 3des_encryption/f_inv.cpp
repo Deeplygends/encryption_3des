@@ -74,7 +74,7 @@ f_inv::f_inv(SequenceD<64> seqD)
 		}
 	}
 	keygen_ = key_gen(seqD);
-	s_fonction_ = S_fonction(sbox_array);
+	s_fonction_ = s_fonction(sbox_array);
 
 	this->key_to_use = 0;
 	//Generation of all the key and put it in the revert order
