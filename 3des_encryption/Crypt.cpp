@@ -20,24 +20,37 @@ void crypt::operator()(const string& file_in, const string& file_out) const
 	cout << "cdes k2" << endl;
 	auto ddes = des_inv(k2_);
 	list<sequence_d<64>> list_seq;
-	sequence_d<64> seq;
+	//sequence_d<64> seq;
 
 	// acces fichier -> recup contenu
-	ifstream read_file;
-	ofstream write_file;
-	cout << "open read file" << endl;
-	read_file.open(file_in);
-	cout << "open write file" << endl;
-	write_file.open(file_out);
-	int size = read_file.tellg();
+	cout << "open read file : " << file_in << endl;
+	ifstream read_file(file_in);
 	
-	while(!read_file.eof())
+	cout << "open write file" << file_out << endl;
+	ofstream write_file(file_out);
+
+	//get length
+	read_file.seekg(0, std::ifstream::end);
+	int file_size = read_file.tellg();
+	cout << "read_file length :" << read_file.tellg();
+	read_file.seekg(0, std::ifstream::beg);
+
+	for (auto i = 0; i < file_size; i += 8)
 	{
-		read_file.read(reinterpret_cast<char*>(&seq), 8);
-		cout << seq;
+		sequence_d<64> seq;
+		read_file >> seq;
+
+		//debug
+		cout << "input SEQd : " << endl;
+		write(cout, seq);
+
+		//encrypt
 		seq = cdes(ddes(cdes(seq)));
+
+		//write to file
 		write_file << seq;
 	}
+	
 	/*
 	if (read_file.is_open())
 	{
@@ -52,7 +65,7 @@ void crypt::operator()(const string& file_in, const string& file_out) const
 	read_file.close();
 	write_file.close();
 	// ecriture fichier
-	
+
 	/*
 	for (auto cryptedSeq : list_seq)
 	{
@@ -60,5 +73,5 @@ void crypt::operator()(const string& file_in, const string& file_out) const
 		write_file << seq;
 	}
 	*/
-	
+
 }

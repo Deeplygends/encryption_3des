@@ -203,22 +203,11 @@ static void test_sequence_d()
 
 static void test_crypt()
 {
-	string key_1 = "testtest";
 	sequence_d<64> key1 = sequence_d<64>();
 	sequence_d<64> key2 = sequence_d<64>();
-	key1.import_string(key_1);
+	key1.import_string("testtest");
 	key2.import_string("01234567");
 	crypt encryption = crypt(key1, key2);
-	encryption("C:\\Users\\Deeplygends\\Documents\\decrypt.txt", "C:\\Users\\Deeplygends\\Documents\\crypt.txt");
+	encryption("A:\\Documents\\Dodo\\M2\\S2\\Cpp\\projet\\encryption_3des\\3des_encryption\\clear_text.txt", "A:\\Documents\\Dodo\\M2\\S2\\Cpp\\projet\\encryption_3des\\3des_encryption\\encrypted_text.txt");
 	
 }
-// Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
-// Déboguer le programme : F5 ou menu Déboguer > Démarrer le débogage
-
-// Astuces pour bien démarrer : 
-//   1. Utilisez la fenêtre Explorateur de solutions pour ajouter des fichiers et les gérer.
-//   2. Utilisez la fenêtre Team Explorer pour vous connecter au contrôle de code source.
-//   3. Utilisez la fenêtre Sortie pour voir la sortie de la génération et d'autres messages.
-//   4. Utilisez la fenêtre Liste d'erreurs pour voir les erreurs.
-//   5. Accédez à Projet > Ajouter un nouvel élément pour créer des fichiers de code, ou à Projet > Ajouter un élément existant pour ajouter des fichiers de code existants au projet.
-//   6. Pour rouvrir ce projet plus tard, accédez à Fichier > Ouvrir > Projet et sélectionnez le fichier .sln.

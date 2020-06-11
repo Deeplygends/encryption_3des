@@ -176,6 +176,10 @@
     <ClInclude Include="sequence_d.h" />
     <ClInclude Include="s_fonction.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="clear_text.txt" />
+    <Text Include="encrypted_text.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

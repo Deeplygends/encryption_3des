@@ -96,4 +96,12 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="clear_text.txt">
+      <Filter>Fichiers de ressources</Filter>
+    </Text>
+    <Text Include="encrypted_text.txt">
+      <Filter>Fichiers de ressources</Filter>
+    </Text>
+  </ItemGroup>
 </Project>
