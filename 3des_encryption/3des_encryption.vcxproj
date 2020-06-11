@@ -153,7 +153,7 @@
     <ClCompile Include="DES.cpp" />
     <ClCompile Include="des_inv.cpp" />
     <ClCompile Include="F.cpp" />
-    <ClCompile Include="Finv.cpp" />
+    <ClCompile Include="f_inv.cpp" />
     <ClCompile Include="helper.cpp" />
     <ClCompile Include="KeyGen.cpp" />
     <ClCompile Include="Permutation.cpp" />
@@ -168,7 +168,7 @@
     <ClInclude Include="DES.h" />
     <ClInclude Include="des_inv.h" />
     <ClInclude Include="F.h" />
-    <ClInclude Include="Finv.h" />
+    <ClInclude Include="f_inv.h" />
     <ClInclude Include="KeyGen.h" />
     <ClInclude Include="Permutation.h" />
     <ClInclude Include="Sbox.h" />

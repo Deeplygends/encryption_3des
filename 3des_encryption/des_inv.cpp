@@ -1,7 +1,7 @@
 #include "des_inv.h"
 
 
-#include "Finv.h"
+#include "f_inv.h"
 #include "Permutation.h"
 
 des_inv::des_inv(SequenceD<64> key)
@@ -24,7 +24,7 @@ SequenceD<64> des_inv::operator()(SequenceD<64> seq_d)
 	SequenceD<64> roundSeqD = permutation(seq_d, initial_perm);
 
 	// F fonction
-	Finv f = Finv(key_);
+	f_inv f = f_inv(key_);
 
 	for (int i = 0; i < 16; i++)
 	{
