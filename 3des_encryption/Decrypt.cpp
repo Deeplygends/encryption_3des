@@ -2,7 +2,7 @@
 #include <fstream>
 
 #include "DES.h"
-#include "DESinv.h"
+#include "des_inv.h"
 
 
 decrypt::decrypt(SequenceD<64> k1, SequenceD<64> k2)
@@ -14,7 +14,7 @@ decrypt::decrypt(SequenceD<64> k1, SequenceD<64> k2)
 void decrypt::operator()(string file_in, string file_out)
 {
 	des cdes = des(k2_);
-	DESinv ddes = DESinv(k1_);
+	des_inv ddes = des_inv(k1_);
 	list<SequenceD<64>> listSeq;
 	SequenceD<64> seq;
 

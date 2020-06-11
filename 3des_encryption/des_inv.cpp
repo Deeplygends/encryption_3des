@@ -1,15 +1,15 @@
-#include "DESinv.h"
+#include "des_inv.h"
 
 
 #include "Finv.h"
 #include "Permutation.h"
 
-DESinv::DESinv(SequenceD<64> key)
+des_inv::des_inv(SequenceD<64> key)
 {
-	this->key = key;
+	this->key_ = key;
 }
 
-SequenceD<64> DESinv::operator()(SequenceD<64> seqD)
+SequenceD<64> des_inv::operator()(SequenceD<64> seq_d)
 {
 	vector<int> initial_perm{ 58, 50, 42, 34, 26, 18, 10, 2,
 							 60, 52, 44, 36, 28, 20, 12, 4,
@@ -21,10 +21,10 @@ SequenceD<64> DESinv::operator()(SequenceD<64> seqD)
 							 63, 55, 47, 39, 31, 23, 15, 7 };
 
 	Permutation<64, 64> permutation;
-	SequenceD<64> roundSeqD = permutation(seqD, initial_perm);
+	SequenceD<64> roundSeqD = permutation(seq_d, initial_perm);
 
 	// F fonction
-	Finv f = Finv(key);
+	Finv f = Finv(key_);
 
 	for (int i = 0; i < 16; i++)
 	{

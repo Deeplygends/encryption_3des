@@ -3,7 +3,7 @@
 #include <fstream>
 
 #include "DES.h"
-#include "DESinv.h"
+#include "des_inv.h"
 
 
 crypt::crypt(SequenceD<64> k1, SequenceD<64> k2)
@@ -15,7 +15,7 @@ crypt::crypt(SequenceD<64> k1, SequenceD<64> k2)
 void crypt::operator()(string file_in, string file_out)
 {
 	des cdes = des(k1_);
-	DESinv ddes = DESinv(k2_);
+	des_inv ddes = des_inv(k2_);
 	list<SequenceD<64>> listSeq;
 	SequenceD<64> seq;
 

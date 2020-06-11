@@ -151,7 +151,7 @@
     <ClCompile Include="Crypt.cpp" />
     <ClCompile Include="Decrypt.cpp" />
     <ClCompile Include="DES.cpp" />
-    <ClCompile Include="DESinv.cpp" />
+    <ClCompile Include="des_inv.cpp" />
     <ClCompile Include="F.cpp" />
     <ClCompile Include="Finv.cpp" />
     <ClCompile Include="helper.cpp" />
@@ -166,7 +166,7 @@
     <ClInclude Include="Crypt.h" />
     <ClInclude Include="Decrypt.h" />
     <ClInclude Include="DES.h" />
-    <ClInclude Include="DESinv.h" />
+    <ClInclude Include="des_inv.h" />
     <ClInclude Include="F.h" />
     <ClInclude Include="Finv.h" />
     <ClInclude Include="KeyGen.h" />
