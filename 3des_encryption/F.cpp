@@ -2,7 +2,7 @@
 
 #include "Permutation.h"
 
-f::f(sequence_d<64> seqD)
+f::f(const sequence_d<64>& seq_d)
 {
 	int sboxes[8][4][16] = {
 		{
@@ -54,26 +54,26 @@ f::f(sequence_d<64> seqD)
 			{2, 1, 14, 7, 4, 10, 8, 13, 15, 12, 9, 0, 3, 5, 6, 11}
 		}
 	};
-	int*** sbox_array = new int** [8];
+	auto* const sbox_array = new int** [8];
 
 	// Allocate an array for each element of the first array
-	for (int x = 0; x < 8; ++x)
+	for (auto x = 0; x < 8; ++x)
 	{
 		sbox_array[x] = new int* [4];
 
 		// Allocate an array of integers for each element of this array
-		for (int y = 0; y < 4; ++y)
+		for (auto y = 0; y < 4; ++y)
 		{
 			sbox_array[x][y] = new int[16];
 
 			// Specify an specific value
-			for (int z = 0; z < 16; ++z)
+			for (auto z = 0; z < 16; ++z)
 			{
 				sbox_array[x][y][z] = sboxes[x][y][z];
 			}
 		}
 	}
-	keygen_ = key_gen(seqD);
+	keygen_ = key_gen(seq_d);
 	s_fonction_ = s_fonction(sbox_array);
 }
 
@@ -98,21 +98,21 @@ sequence f::operator()(sequence seq)
 				   22, 11, 4, 25 };
 
 	permutation<32, 48> exp_perm;
-	sequence_d<32> seqD32 = sequence_d<32>(seq.sous_sequence(0, seq.size() / 2), seq.sous_sequence(seq.size() / 2 + 1, seq.size()));
-	sequence_d<48> seq48 = exp_perm(seqD32, e_p);
-	sequence_d<48> key = keygen_.next();
+	auto seq_d32 = sequence_d<32>(seq.sous_sequence(0, seq.size() / 2), seq.sous_sequence(seq.size() / 2 + 1, seq.size()));
+	auto seq48 = exp_perm(seq_d32, e_p);
+	auto key = keygen_.next();
 
 	// XOR avec sous-clé
-	sequence_d<48> xor_seqD = seq48 * key;
-	list<sequence> listSeq({ xor_seqD.left(),xor_seqD.right() });
+	auto xor_seq_d = seq48 * key;
+	list<sequence> list_seq({ xor_seq_d.left(),xor_seq_d.right() });
 
 
 	//listSeq.push_back(xor_seqD.left());
 	//listSeq.push_back(xor_seqD.right());
-	sequence xor_seq = sequence(listSeq);
+	auto xor_seq = sequence(list_seq);
 
 	// S_fonction (sboxes)
-	sequence sub = s_fonction_(xor_seq);
+	auto sub = s_fonction_(xor_seq);
 
 	// permutation
 	return sub.permutation(p);
