@@ -23,14 +23,14 @@ sequence s_box::operator()(sequence seq)
 	auto row = 0;
 	int rowsize = row_seq.size();
 	
-	for (auto i = rowsize; i >=0 ; i--) {
+	for (auto i = rowsize-1; i >=0 ; i--) {
 		row += row_seq(i) * pow(2, row_seq.size()-i);
 	}
 	cout << "row : " << row << endl;
 	auto col_seq = sequence(seq.sous_sequence(1, 4));
 	int colsize = col_seq.size();
 	auto col = 0;
-	for (auto i = colsize; i >= 0; i--) {
+	for (auto i = colsize-1; i >= 0; i--) {
 		col += col_seq(i) * pow(2, col_seq.size()- i);
 	}
 	cout << "col : " << col << endl;

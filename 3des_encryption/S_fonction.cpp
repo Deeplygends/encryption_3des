@@ -19,7 +19,8 @@ sequence s_fonction::operator()(sequence seq) const
 	list<sequence> list_seq;
 	for (auto i = 0; i < 8; i++) {
 		auto sbox = s_box(s_boxes_[i]);
-		list_seq.push_back(sbox(seq.sous_sequence(i * 8, i * 8 + 5)));
+		sequence sous_sequence = seq.sous_sequence(i * 6, i * 6 + 5);
+		list_seq.push_back(sbox(sous_sequence));
 	}
 	return sequence(list_seq);
 }
