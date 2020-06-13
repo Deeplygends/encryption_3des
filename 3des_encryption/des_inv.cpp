@@ -23,13 +23,16 @@ sequence_d<64> des_inv::operator()(sequence_d<64> seq_d) const
 	auto round_seq_d = permutation(std::move(seq_d), initial_perm);
 
 	// F fonction
-	auto f = f_inv(key_);
+	auto f_inv_ = f_inv(key_);
 
 	for (auto i = 0; i < 16; i++)
 	{
-		auto seq_right = f(round_seq_d.right());
+		// li-1 = round_seq_d.left() && ri-1 = round_seq_d.right()
+		auto seq_right = f_inv_(round_seq_d.right());
 		auto round_seq = seq_right * round_seq_d.left();
-		round_seq_d = sequence_d<64>(round_seq.sous_sequence(0, round_seq.size() / 2), round_seq.sous_sequence(round_seq.size() / 2 + 1, round_seq.size()));
+		// round_seq = ri && ri-1 = round_seq_d.right() = li
+		//round_seq_d = sequence_d<64>(round_seq.sous_sequence(0, round_seq.size() / 2 - 1), round_seq.sous_sequence(round_seq.size() / 2, round_seq.size() - 1));
+		round_seq_d = sequence_d<64>(round_seq_d.right(), round_seq);
 	}
 	auto swapped_seq_d = sequence_d<64>(round_seq_d.right(), round_seq_d.left());
 

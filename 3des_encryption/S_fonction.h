@@ -8,7 +8,7 @@ class s_fonction {
 public:
 	s_fonction(int*** sboxes);
 	s_fonction() = default;
-	~s_fonction();
+	//~s_fonction();
 	s_fonction(const s_fonction& s_fonction);
 	s_fonction& operator=(const s_fonction& s_fonction);
 	sequence operator()(sequence seq) const;

@@ -16,7 +16,8 @@ sequence_d<SizeOut> permutation<SizeIn, SizeOut>::operator()(sequence_d<SizeIn> 
 
 	//v[i]-1 if vector contains values starting from 1 instead of 0
 	for (auto i = 0; i < SizeOut; i++) {
-		seq[i] = v[i] < SizeIn ? seq_d(v[i]) : 0;
+		//seq[i] = v[i]-1 < SizeIn ? seq_d(v[i]-1) : 0;
+		seq[i] = seq_d(v[i] - 1);
 	}
 	return seq;
 }

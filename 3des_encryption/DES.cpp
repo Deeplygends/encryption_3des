@@ -11,7 +11,7 @@ des::des(const sequence_d<64>& key)
 	this->key_ = key;
 }
 
-sequence_d<64> des::operator()(sequence_d<64> seq_d) const
+sequence_d<64> des::operator()(sequence_d<64> seq_d)
 {
 	vector<int> initial_perm{ 58, 50, 42, 34, 26, 18, 10, 2,
 							 60, 52, 44, 36, 28, 20, 12, 4,
@@ -23,16 +23,19 @@ sequence_d<64> des::operator()(sequence_d<64> seq_d) const
 							 63, 55, 47, 39, 31, 23, 15, 7 };
 
 	permutation<64, 64> permutation;
-	auto round_seq_d = permutation(std::move(seq_d), initial_perm);
+	auto round_seq_d = permutation(seq_d, initial_perm);
 
 	// F fonction
 	auto f_ = f(key_);
 
 	for (auto i = 0; i < 16; i++)
 	{
+		// li-1 = round_seq_d.left() && ri-1 = round_seq_d.right()
 		auto seq_right = f_(round_seq_d.right());
 		auto round_seq = seq_right * round_seq_d.left();
-		round_seq_d = sequence_d<64>(round_seq.sous_sequence(0, round_seq.size() / 2), round_seq.sous_sequence(round_seq.size() / 2 + 1, round_seq.size()));
+		// round_seq = ri && ri-1 = round_seq_d.right() = li
+		//round_seq_d = sequence_d<64>(round_seq.sous_sequence(0, round_seq.size() / 2 - 1), round_seq.sous_sequence(round_seq.size() / 2, round_seq.size() - 1));
+		round_seq_d = sequence_d<64>(round_seq_d.right(), round_seq);
 	}
 	auto swapped_seq_d = sequence_d<64>(round_seq_d.right(), round_seq_d.left());
 

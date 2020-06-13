@@ -68,6 +68,7 @@ int& sequence_d<Size>::operator[](const int index) {
 
 template<int Size>
 const int sequence_d<Size>::operator()(const int index) {
+	//TODO: gestion index
 	// return unmodifiable <index>th bit of the sequence
 	if (index < Size / 2)
 		return l_(index);
@@ -175,7 +176,7 @@ void sequence_d<Size>::import_string(string line)
 				r_[(i * 8 + j) % 32] = ele - '0';
 			else
 				l_[(i * 8 + j) % 32] = ele - '0';*/
-			this->operator[](i+j) = ele - '0';
+			this->operator[](i + j) = ele - '0';
 			j++;
 		}
 	}

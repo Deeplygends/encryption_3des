@@ -25,7 +25,7 @@ void crypt::operator()(const string& file_in, const string& file_out) const
 	// acces fichier -> recup contenu
 	cout << "open read file : " << file_in << endl;
 	ifstream read_file(file_in);
-	
+
 	cout << "open write file" << file_out << endl;
 	ofstream write_file(file_out);
 
@@ -41,16 +41,20 @@ void crypt::operator()(const string& file_in, const string& file_out) const
 		read_file >> seq;
 
 		//debug
-		cout << "input SEQd : " << endl;
+		cout << endl << "input SEQd : ";
 		write(cout, seq);
+		cout << seq;
 
 		//encrypt
-		seq = cdes(ddes(cdes(seq)));
+		auto des1 = cdes(seq);
+		auto des2 = ddes(des1);
+		seq = cdes(des2);
+		//seq = cdes(ddes(cdes(seq)));
 
 		//write to file
 		write_file << seq;
 	}
-	
+
 	/*
 	if (read_file.is_open())
 	{

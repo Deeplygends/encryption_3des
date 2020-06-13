@@ -38,8 +38,8 @@ int& sequence::operator[](int index) {
 int sequence::operator()(const int index)
 {
 	// return unmodifiable <index>th bit of the sequence
-	if (index > 32)
-		return sequence_.at(31);
+	/*if (index > size())
+		return sequence_.at(size()-1);*/
 	return sequence_.at(index);
 }
 
@@ -49,7 +49,7 @@ double sequence::size() const
 }
 
 sequence& sequence::operator=(int& entier) {
-	auto position = 0;
+	auto position = static_cast<int>(size()-1);
 	deque<int> binary;
 	do
 	{
@@ -57,11 +57,19 @@ sequence& sequence::operator=(int& entier) {
 		entier /= 2;
 	} while (entier != 0);
 
-	while (!binary.empty() && position < size())
+	while (position >= 0)
 	{
-		sequence_[position] = binary.front();
-		binary.pop_front();
-		position++;
+		if (!binary.empty())
+		{
+			sequence_[position] = binary.back();
+			binary.pop_back();
+		}
+		else
+		{
+			sequence_[position] = 0;
+		}
+
+		position--;
 	}
 
 	return *this;

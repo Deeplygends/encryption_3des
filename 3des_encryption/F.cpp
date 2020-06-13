@@ -74,7 +74,7 @@ f::f(const sequence_d<64>& seq_d)
 		}
 	}
 	keygen_ = key_gen(seq_d);
-	s_fonction_ = s_fonction(sbox_array);
+	this->s_fonction_ = s_fonction(sbox_array);
 }
 
 sequence f::operator()(sequence seq)
@@ -98,7 +98,7 @@ sequence f::operator()(sequence seq)
 				   22, 11, 4, 25 };
 
 	permutation<32, 48> exp_perm;
-	auto seq_d32 = sequence_d<32>(seq.sous_sequence(0, seq.size() / 2), seq.sous_sequence(seq.size() / 2 + 1, seq.size()));
+	auto seq_d32 = sequence_d<32>(seq.sous_sequence(0, seq.size() / 2 - 1), seq.sous_sequence(seq.size() / 2, seq.size() - 1));
 	auto seq48 = exp_perm(seq_d32, e_p);
 	auto key = keygen_.next();
 
