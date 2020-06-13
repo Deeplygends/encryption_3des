@@ -39,14 +39,12 @@ sequence s_box::operator()(sequence seq)
 	for (auto i = 0; i < rowsize; i++) {
 		row += row_seq(i) * pow(2, rowsize - i - 1);
 	}
-	cout << "row : " << row << endl;
 	auto col_seq = sequence(seq.sous_sequence(1, 4));
 	int colsize = col_seq.size();
 	auto col = 0;
 	for (auto i = 0; i < colsize; i++) {
 		col += col_seq(i) * pow(2, colsize - i - 1);
 	}
-	cout << "col : " << col << endl;
 
 	auto res = matrice_[row][col];
 	auto cpt = 0, temp_res = matrice_[row][col];
@@ -55,7 +53,7 @@ sequence s_box::operator()(sequence seq)
 		temp_res /= 2;
 		cpt++;
 	} while (temp_res != 0);
-	sequence res_seq = sequence();
+	auto res_seq = sequence();
 	res_seq = res;
 	return res_seq;
 }
