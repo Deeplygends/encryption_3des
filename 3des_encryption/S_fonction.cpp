@@ -22,9 +22,9 @@ s_fonction::s_fonction(int*** sboxes) {
 	}
 }
 
-//s_fonction::~s_fonction() {
-//	delete s_boxes_;
-//}
+s_fonction::~s_fonction() {
+	//delete s_boxes_;
+}
 
 s_fonction::s_fonction(const s_fonction& s_fonction) {
 	this->s_boxes_ = s_fonction.s_boxes_;

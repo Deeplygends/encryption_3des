@@ -10,6 +10,8 @@
 #include "crypt.h"
 #include <string>
 
+#include "decrypt.h"
+
 using namespace std;
 static void test_sequence();
 static void test_sequence_d();
@@ -79,7 +81,7 @@ static void test_sequence_d()
 	seq.to_string();
 	seq = seq * seq2;
 	seq.to_string();
-	cout << seq; 
+	cout << seq;
 
 
 	affichage(seq);
@@ -205,9 +207,14 @@ static void test_crypt()
 {
 	sequence_d<64> key1 = sequence_d<64>();
 	sequence_d<64> key2 = sequence_d<64>();
-	key1.import_string("testtest");
-	key2.import_string("01234567");
+	//key1.import_string("testtest");
+	cout << "Veuillez entrer les cles :" << endl;
+	cin >> key1;
+	cin >> key2;
+	cout << "key1 : " << key1;
+	cout << "key2 : " << key2;
 	crypt encryption = crypt(key1, key2);
+	decrypt decryption = decrypt(key1, key2);
 	encryption("A:\\Documents\\Dodo\\M2\\S2\\Cpp\\projet\\encryption_3des\\3des_encryption\\clear_text.txt", "A:\\Documents\\Dodo\\M2\\S2\\Cpp\\projet\\encryption_3des\\3des_encryption\\encrypted_text.txt");
-	
+	decryption("A:\\Documents\\Dodo\\M2\\S2\\Cpp\\projet\\encryption_3des\\3des_encryption\\encrypted_text.txt", "A:\\Documents\\Dodo\\M2\\S2\\Cpp\\projet\\encryption_3des\\3des_encryption\\decrypted.txt");
 }

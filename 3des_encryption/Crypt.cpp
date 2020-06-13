@@ -15,12 +15,10 @@ crypt::crypt(sequence_d<64> k1, sequence_d<64> k2)
 
 void crypt::operator()(const string& file_in, const string& file_out) const
 {
-	cout << "cdes k1" << endl;
+	cout << "cdes k1 :"<< k1_ << endl;
 	auto cdes = des(k1_);
-	cout << "cdes k2" << endl;
+	cout << "cdes k2 :" << k2_ << endl;
 	auto ddes = des_inv(k2_);
-	list<sequence_d<64>> list_seq;
-	//sequence_d<64> seq;
 
 	// acces fichier -> recup contenu
 	cout << "open read file : " << file_in << endl;
@@ -49,33 +47,10 @@ void crypt::operator()(const string& file_in, const string& file_out) const
 		auto des1 = cdes(seq);
 		auto des2 = ddes(des1);
 		seq = cdes(des2);
-		//seq = cdes(ddes(cdes(seq)));
 
 		//write to file
 		write_file << seq;
 	}
-
-	/*
-	if (read_file.is_open())
-	{
-		while (!read_file.eof())
-		{
-			read_file >> seq;
-			seq = cdes(ddes(cdes(seq)));
-			list_seq.push_back(seq);
-		}
-	}
-	*/
 	read_file.close();
 	write_file.close();
-	// ecriture fichier
-
-	/*
-	for (auto cryptedSeq : list_seq)
-	{
-		write_file << cryptedSeq;
-		write_file << seq;
-	}
-	*/
-
 }

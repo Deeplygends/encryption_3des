@@ -16,30 +16,38 @@ void decrypt::operator()(const string& file_in, const string& file_out) const
 {
 	auto cdes = des(k2_);
 	auto ddes = des_inv(k1_);
-	list<sequence_d<64>> list_seq;
-	sequence_d<64> seq;
-
+	
 	// acces fichier -> recup contenu
-	ifstream read_file;
-	read_file.open(file_in);
-	if (read_file.is_open())
+	cout << "open read file : " << file_in << endl;
+	ifstream read_file(file_in);
+
+	cout << "open write file" << file_out << endl;
+	ofstream write_file(file_out);
+
+	//get length
+	read_file.seekg(0, std::ifstream::end);
+	int file_size = read_file.tellg();
+	cout << "read_file length :" << read_file.tellg();
+	read_file.seekg(0, std::ifstream::beg);
+
+	for (auto i = 0; i < file_size; i += 8)
 	{
-		while (!read_file.eof())
-		{
-			read_file >> seq;
-			seq = ddes(cdes(ddes(seq)));
-			list_seq.push_back(seq);
-		}
+		sequence_d<64> seq;
+		read_file >> seq;
+
+		//debug
+		cout << endl << "input SEQd : ";
+		write(cout, seq);
+		cout << seq;
+
+		//encrypt
+		auto des1 = ddes(seq);
+		auto des2 = cdes(des1);
+		seq = ddes(des2);
+
+		//write to file
+		write_file << seq;
 	}
 	read_file.close();
-
-	// ecriture fichier
-	ofstream write_file;
-	write_file.open(file_out);
-
-	for (const auto& decrypted_seq : list_seq)
-	{
-		write_file << decrypted_seq;
-	}
 	write_file.close();
 }

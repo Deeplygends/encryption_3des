@@ -103,5 +103,11 @@
     <Text Include="encrypted_text.txt">
       <Filter>Fichiers de ressources</Filter>
     </Text>
+    <Text Include="encrypted_in.txt">
+      <Filter>Fichiers de ressources</Filter>
+    </Text>
+    <Text Include="decrypted.txt">
+      <Filter>Fichiers de ressources</Filter>
+    </Text>
   </ItemGroup>
 </Project>

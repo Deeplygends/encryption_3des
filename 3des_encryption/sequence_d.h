@@ -113,7 +113,6 @@ ostream& operator<<(ostream& os, sequence_d<Size> seq) {
 	string s = "";
 	for (auto i = 0; i < 4; i++) {
 		sequence seq8_bits = seq.left().sous_sequence(i * 8, i * 8 + 7);
-		auto byte_string = seq8_bits.stringify();
 		bitset<8> byte;
 		for (auto j = 7; j > -1; j--)
 			byte[j] = seq8_bits(7 - j);
@@ -122,7 +121,6 @@ ostream& operator<<(ostream& os, sequence_d<Size> seq) {
 	}
 	for (auto i = 0; i < 4; i++) {
 		sequence seq8_bits = seq.right().sous_sequence(i * 8, i * 8 + 7);
-		auto byte_string = seq8_bits.stringify();
 		bitset<8> byte;
 		for (auto j = 7; j > -1; j--)
 			byte[j] = seq8_bits(7 - j);
@@ -180,7 +178,6 @@ void sequence_d<Size>::import_string(string line)
 			j++;
 		}
 	}
-	seq.size();
 }
 
 template<int Size>
@@ -217,7 +214,6 @@ void affichage(T seq)
 {
 	const int size = seq.size();
 	for (auto i = 0; i < size; i++) {
-		cout << "quentin <3";
 		cout << seq(i);
 		if ((i + 1) % 8 == 0) cout << " ";
 	}

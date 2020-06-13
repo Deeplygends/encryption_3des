@@ -101,6 +101,8 @@ sequence f::operator()(sequence seq)
 	auto seq_d32 = sequence_d<32>(seq.sous_sequence(0, seq.size() / 2 - 1), seq.sous_sequence(seq.size() / 2, seq.size() - 1));
 	auto seq48 = exp_perm(seq_d32, e_p);
 	auto key = keygen_.next();
+	cout << "key F :";
+	affichage(key);
 
 	// XOR avec sous-clé
 	auto xor_seq_d = seq48 * key;
