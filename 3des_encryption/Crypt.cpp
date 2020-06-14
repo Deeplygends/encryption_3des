@@ -28,6 +28,8 @@ void crypt::operator()(const string& file_in, const string& file_out) const
 	cout << "Input file : " << file_in << endl;
 	ifstream read_file(file_in);
 
+
+
 	cout << "Output file : " << file_out << endl;
 	ofstream write_file(file_out);
 

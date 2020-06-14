@@ -177,7 +177,8 @@ istream& operator>>(istream& is, sequence_d<Size>& seq) {
 	for (auto i = 0; i < 64; i += 8)
 	{
 		char c;
-		if (!(is >> c))
+		// read stream without skipping whitespaces
+		if (!(is >> noskipws >> c))
 		{
 			c = '\0';
 		}
