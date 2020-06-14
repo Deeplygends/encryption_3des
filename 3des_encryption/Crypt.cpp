@@ -36,7 +36,6 @@ void crypt::operator()(const string& file_in, const string& file_out) const
 	for (auto i = 0; i < file_size; i += 8)
 	{
 		sequence_d<64> seq;
-		// read stream without skipping whitespaces
 		read_file >> seq;
 
 		//debug
