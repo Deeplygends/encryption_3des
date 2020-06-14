@@ -13,6 +13,12 @@ crypt::crypt(sequence_d<64> k1, sequence_d<64> k2)
 	this->k2_ = std::move(k2);
 }
 
+
+/*
+ * Input : Path du fichier à crypter, et path du fichier où écrire le contenu crypté
+ * Construction de séquence_d de 8 caractères (64 bits) et
+ * application du 3DES sur chacune de ces séquences_d.
+ */
 void crypt::operator()(const string& file_in, const string& file_out) const
 {
 	auto cdes = des(k1_);

@@ -8,6 +8,11 @@
 #include <bitset>
 using namespace std;
 
+/*
+ * INFORMATION : Le contenu des fonctions a été spécifié dans le .h à
+ * cause de multiple erreurs différentes entre les différents auteurs du projet
+*/
+
 template<int Size = 4>
 class sequence_d : private sequence {
 public:
@@ -44,18 +49,29 @@ private:
 	sequence r_;
 };
 
+
+/*
+ * Input : Constructeur par défaut de sequence_d
+ */
 template<int Size>
 sequence_d<Size>::sequence_d() {
 	l_ = sequence(Size / 2);
 	r_ = sequence(Size / 2);
 }
 
+/*
+ * Constructeur prenant en paramètre deux séquences qui seront affectés à l_ et r_
+ */
 template<int Size>
 sequence_d<Size>::sequence_d(const sequence seq1, const sequence seq2) {
 	l_ = seq1;
 	r_ = seq2;
 }
 
+/*
+ * Redéfinition de l'opérateur [] permettant de récupérer dynamiquement
+ * une valeur situé dans les séquences r_ et l_ via l'index passé en paramètre
+ */
 template<int Size>
 int& sequence_d<Size>::operator[](const int index) {
 	// return modifiable <index>th bit of the sequence
@@ -66,6 +82,10 @@ int& sequence_d<Size>::operator[](const int index) {
 	//TODO: gestion exception
 }
 
+/*
+ * Redéfinition de l'opérateur () permettant de récupérer dynamiquement
+ * une valeur d'index entre les deux séquences
+ */
 template<int Size>
 const int sequence_d<Size>::operator()(const int index) {
 	//TODO: gestion index
@@ -76,11 +96,18 @@ const int sequence_d<Size>::operator()(const int index) {
 	//TODO: gestion exception
 }
 
+/*
+ * Retourne la taille de sequence_d.
+ */
 template<int Size>
 double sequence_d<Size>::size() {
 	return Size;
 }
 
+/*
+ * Effectue un décalage de valeur shift.
+ * Le décalage s'effectue séparement entre l_ et r_.
+ */
 template<int Size>
 void sequence_d<Size>::decalage(const int shift) {
 	// shift <shift> left bits to the right of the Sequence
@@ -88,16 +115,27 @@ void sequence_d<Size>::decalage(const int shift) {
 	r_.decalage(shift);
 }
 
+/*
+ * Retourne la sequence r_
+ */
 template<int Size>
 sequence& sequence_d<Size>::right() {
 	return r_;
 }
 
+/*
+ * Retourne la sequence l_
+ */
 template<int Size>
 sequence& sequence_d<Size>::left() {
 	return l_;
 }
 
+/*
+ * Redéfinition de l'opératuer *, effectuant un XOR entre deux sequence_d
+ * (Le XOR s'effectue indépendament entre les sequences droites et gauche.
+ * Retour l'adresse de l'objet courant
+ */
 template<int Size>
 sequence_d<Size>& sequence_d<Size>::operator*(sequence_d<Size>& seq) {
 	// return XOR on two sequences

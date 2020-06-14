@@ -10,6 +10,12 @@ public:
 	sequence_d<SizeOut> operator()(sequence_d<SizeIn>, vector<int>);
 };
 
+/*
+ * Effectue une permutation (stockée dans un vecteur)
+ * d'une séquence initiale dans une nouvelle séquence.
+ * La taille d'origine de la séquence est SizeIn
+ * La taille de la séquence de sortie est SizeOut
+ */
 template<int SizeIn, int SizeOut>
 sequence_d<SizeOut> permutation<SizeIn, SizeOut>::operator()(sequence_d<SizeIn> seq_d, vector<int> v) {
 	sequence_d<SizeOut> seq = sequence_d<SizeOut>();

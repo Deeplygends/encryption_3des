@@ -214,11 +214,11 @@ static void test_crypt()
 
 	// encryption
 	cout << "===== BEGINNING OF ENCRYPTION =====" << endl;
-	encryption(".\\clear_text.txt", ".\\encrypted_text.txt");
+	encryption(".\\file\\clear_text.txt", ".\\file\\encrypted_text.txt");
 	cout << "===== END OF ENCRYPTION =====" << endl << endl;
 
 	// decryption
 	cout << "===== BEGINNING OF DECRYPTION =====" << endl;
-	decryption(".\\encrypted_text.txt", ".\\decrypted_text.txt");
+	decryption(".\\file\\encrypted_text.txt", ".\\file\\decrypted_text.txt");
 	cout << "===== END OF DECRYPTION =====";
 }

@@ -1,4 +1,5 @@
 #include "s_box.h"
+#include "math.h"
 
 s_box::s_box(int** matrice) {
 	this->matrice_ = new int* [4];
