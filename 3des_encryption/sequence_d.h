@@ -139,7 +139,15 @@ istream& operator>>(istream& is, sequence_d<Size>& seq) {
 	for (auto i = 0; i < 64; i += 8)
 	{
 		char c;
-		is >> c;
+		if(is.eof())
+		{
+			c = ' ';
+		} else
+		{
+			is >> c;
+		}
+		
+		cout << "debug >> : c=" << c << endl;
 		auto set = bitset<8>(c);
 		string array = set.to_string().c_str();
 		auto j = 0;
@@ -148,12 +156,7 @@ istream& operator>>(istream& is, sequence_d<Size>& seq) {
 			seq[i + j] = ele - '0';
 			j++;
 		}
-		/*
-		cout << "POUR LA LETTRE " << c << " :";
-		cout << "index i : "<< i << " " << bitset<8>(c) << " done" << endl;
-		*/
 	}
-
 	return is;
 }
 
