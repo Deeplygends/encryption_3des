@@ -179,7 +179,6 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="clear_text.txt" />
-    <Text Include="decrypted.txt" />
     <Text Include="encrypted_in.txt" />
     <Text Include="encrypted_text.txt" />
   </ItemGroup>

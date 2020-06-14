@@ -2,7 +2,6 @@
 //
 
 #include <iostream>
-#include <filesystem>
 #include "sequence.h"
 #include "sequence_d.h"
 #include "helper.cpp"
@@ -205,7 +204,6 @@ static void test_crypt()
 {
 	auto key1 = sequence_d<64>();
 	auto key2 = sequence_d<64>();
-	//key1.import_string("testtest");
 	cout << "Veuillez entrer les cles :" << endl;
 	cin >> key1;
 	cin >> key2;
@@ -216,15 +214,11 @@ static void test_crypt()
 
 	// encryption
 	cout << "===== BEGINNING OF ENCRYPTION =====" << endl;
-	string current_path = filesystem::current_path().u8string();
-	string plain_text_file = current_path + "\\clear_text.txt";
-	string encrypted_text_file = current_path + "\\encrypted_text.txt";
-	encryption(plain_text_file, encrypted_text_file);
+	encryption(".\\clear_text.txt", ".\\encrypted_text.txt");
 	cout << "===== END OF ENCRYPTION =====" << endl << endl;
 
 	// decryption
 	cout << "===== BEGINNING OF DECRYPTION =====" << endl;
-	string decrypted_text_file = current_path + "\\decrypted_text.txt";
-	decryption(encrypted_text_file, decrypted_text_file);
+	decryption(".\\encrypted_text.txt", ".\\decrypted_text.txt");
 	cout << "===== END OF DECRYPTION =====";
 }
