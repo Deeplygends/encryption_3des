@@ -54,7 +54,7 @@ f_inv::f_inv(const sequence_d<64>& seq_d)
 			{2, 1, 14, 7, 4, 10, 8, 13, 15, 12, 9, 0, 3, 5, 6, 11}
 		}
 	};
-	auto* const sbox_array = new int** [8];
+	auto* sbox_array = new int** [8];
 
 	// Allocate an array for each element of the first array
 	for (auto x = 0; x < 8; ++x)
@@ -74,10 +74,10 @@ f_inv::f_inv(const sequence_d<64>& seq_d)
 		}
 	}
 	keygen_ = key_gen(seq_d);
-	s_fonction_ = s_fonction(sbox_array);
+	this->s_fonction_ = s_fonction(sbox_array);
 
 	this->key_to_use = 0;
-	//Generation of all the key and put it in the revert order
+	//Generation of all the key and put them in the reverse order
 	for (auto i = 0; i < 16; i++)
 		keys[15 - i] = keygen_.next();
 }
@@ -104,7 +104,7 @@ sequence f_inv::operator()(sequence seq)
 				   22, 11, 4, 25 };
 
 	permutation<32, 48> exp_perm;
-	auto seq_d32 = sequence_d<32>(seq.sous_sequence(0, seq.size() / 2), seq.sous_sequence(seq.size() / 2 + 1, seq.size()));
+	auto seq_d32 = sequence_d<32>(seq.sous_sequence(0, seq.size() / 2 - 1), seq.sous_sequence(seq.size() / 2, seq.size() - 1));
 	auto seq48 = exp_perm(seq_d32, e_p);
 
 	auto key = keys[key_to_use];

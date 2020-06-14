@@ -1,5 +1,4 @@
 #include "f.h"
-
 #include "permutation.h"
 
 f::f(const sequence_d<64>& seq_d)

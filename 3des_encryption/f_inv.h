@@ -11,5 +11,5 @@ public:
 	int key_to_use;
 private:
 	key_gen keygen_;
-	s_fonction s_fonction_;
+	s_fonction s_fonction_ = s_fonction();
 };

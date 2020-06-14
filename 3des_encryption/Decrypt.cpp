@@ -57,7 +57,7 @@ void decrypt::operator()(const string& file_in, const string& file_out) const
 		cout << "Resulting sequence : " << des3_seq << endl << endl;
 		
 		//write to file
-		write_file << seq;
+		write_file << des3_seq;
 	}
 	read_file.close();
 	write_file.close();
