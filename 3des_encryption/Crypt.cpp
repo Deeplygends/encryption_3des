@@ -22,6 +22,8 @@ void crypt::operator()(const string& file_in, const string& file_out) const
 	cout << "Input file : " << file_in << endl;
 	ifstream read_file(file_in);
 
+
+
 	cout << "Output file : " << file_out << endl;
 	ofstream write_file(file_out);
 
@@ -34,6 +36,7 @@ void crypt::operator()(const string& file_in, const string& file_out) const
 	for (auto i = 0; i < file_size; i += 8)
 	{
 		sequence_d<64> seq;
+		// read stream without skipping whitespaces
 		read_file >> seq;
 
 		//debug
