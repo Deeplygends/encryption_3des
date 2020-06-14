@@ -139,14 +139,10 @@ istream& operator>>(istream& is, sequence_d<Size>& seq) {
 	for (auto i = 0; i < 64; i += 8)
 	{
 		char c;
-		if(is.eof())
+		if (!(is >> c))
 		{
-			c = ' ';
-		} else
-		{
-			is >> c;
+			c = '\0';
 		}
-		
 		cout << "debug >> : c=" << c << endl;
 		auto set = bitset<8>(c);
 		string array = set.to_string().c_str();
@@ -163,11 +159,10 @@ istream& operator>>(istream& is, sequence_d<Size>& seq) {
 template<int Size>
 void sequence_d<Size>::import_string(string line)
 {
-	char c;
-	sequence_d<64> seq = sequence_d<64>();
-	for (int i = 0; i < 8; i++)
+	auto seq = sequence_d<64>();
+	for (auto i = 0; i < 8; i++)
 	{
-		c = line[i];
+		auto c = line[i];
 		auto set = bitset<8>(c);
 		string array = set.to_string().c_str();
 		auto j = 0;

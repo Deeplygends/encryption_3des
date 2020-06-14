@@ -8,7 +8,7 @@ des_inv::des_inv(const sequence_d<64>& key)
 	this->key_ = key;
 }
 
-sequence_d<64> des_inv::operator()(sequence_d<64> seq_d)
+sequence_d<64> des_inv::operator()(sequence_d<64> seq_d) const
 {
 	vector<int> initial_perm{ 58, 50, 42, 34, 26, 18, 10, 2,
 							 60, 52, 44, 36, 28, 20, 12, 4,
@@ -20,7 +20,7 @@ sequence_d<64> des_inv::operator()(sequence_d<64> seq_d)
 							 63, 55, 47, 39, 31, 23, 15, 7 };
 
 	permutation<64, 64> permutation;
-	auto round_seq_d = permutation(seq_d, initial_perm);
+	auto round_seq_d = permutation(std::move(seq_d), initial_perm);
 
 	// F fonction
 	auto f_inv_ = f_inv(key_);

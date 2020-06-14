@@ -16,7 +16,7 @@ void decrypt::operator()(const string& file_in, const string& file_out) const
 {
 	auto ddes = des_inv(k1_);
 	auto cdes = des(k2_);
-	
+
 	// acces fichier -> recup contenu
 	cout << "Input file : " << file_in << endl;
 	ifstream read_file(file_in);
@@ -44,18 +44,18 @@ void decrypt::operator()(const string& file_in, const string& file_out) const
 		//1st round 3DES
 		cout << "1st DES : " << endl;
 		auto des1_seq = ddes(seq);
-		cout << "Resulting sequence : " << des1_seq << endl << endl;
+		cout << "Resulting char sequence : " << des1_seq << endl << endl;
 
 		//2nd round 3DES
 		cout << "2nd DES : " << endl;
 		auto des2_seq = cdes(des1_seq);
-		cout << "Resulting sequence : " << des2_seq << endl << endl;
+		cout << "Resulting char sequence : " << des2_seq << endl << endl;
 
 		//3rd round 3DES
 		cout << "3rd DES : " << endl;
 		auto des3_seq = ddes(des2_seq);
-		cout << "Resulting sequence : " << des3_seq << endl << endl;
-		
+		cout << "Resulting char sequence : " << des3_seq << endl << endl;
+
 		//write to file
 		write_file << des3_seq;
 	}

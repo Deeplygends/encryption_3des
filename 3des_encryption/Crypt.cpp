@@ -28,7 +28,7 @@ void crypt::operator()(const string& file_in, const string& file_out) const
 	//get length
 	read_file.seekg(0, std::ifstream::end);
 	int file_size = read_file.tellg();
-	cout << "Length of read file : " << read_file.tellg();
+	cout << "Length of read file : " << read_file.tellg() << endl;
 	read_file.seekg(0, std::ifstream::beg);
 
 	for (auto i = 0; i < file_size; i += 8)
@@ -40,22 +40,22 @@ void crypt::operator()(const string& file_in, const string& file_out) const
 		cout << endl << "8 char read to binary : ";
 		write(cout, seq);
 		cout << "8 char read to char : " << endl;
-		cout << seq << endl;
+		cout << seq << endl << endl;
 
 		//1st round 3DES
 		cout << "1st DES : " << endl;
 		auto des1_seq = cdes(seq);
-		cout << "Resulting sequence : " << des1_seq << endl << endl;
+		cout << "Resulting char sequence : " << des1_seq << endl << endl;
 
 		//2nd round 3DES
 		cout << "2nd DES : " << endl;
 		auto des2_seq = ddes(des1_seq);
-		cout << "Resulting sequence : " << des2_seq << endl << endl;
+		cout << "Resulting char sequence : " << des2_seq << endl << endl;
 
 		//3rd round 3DES
 		cout << "3rd DES : " << endl;
 		auto des3_seq = cdes(des2_seq);
-		cout << "Resulting sequence : " << des3_seq << endl << endl;
+		cout << "Resulting char sequence : " << des3_seq << endl << endl;
 
 		//write to file
 		write_file << des3_seq;
