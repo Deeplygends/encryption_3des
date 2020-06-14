@@ -9,10 +9,10 @@ public:
 	key_gen(const sequence_d<64>& seq_d);
 	key_gen() = default;
 	sequence_d<48> next();
+	int round_no = 0;
 
 private:
 	sequence_d<56> seq_d56_;
-	int round_no_ = 0;
 
 	vector<int> pc1_ = { 57,49,41,33,25,17,9,
 								   1,58,50,42,34,26,18,
