@@ -107,14 +107,16 @@ sequence f_inv::operator()(sequence seq)
 	auto seq_d32 = sequence_d<32>(seq.sous_sequence(0, seq.size() / 2), seq.sous_sequence(seq.size() / 2 + 1, seq.size()));
 	auto seq48 = exp_perm(seq_d32, e_p);
 
-	//TO DO : Remplacer cette ligne par l'indice dans le tableau;
-	//SequenceD<48> key = keygen_.next();
 	auto key = keys[key_to_use];
 	key_to_use++;
 
+	// print current generated key
+	cout << "key #" << key_to_use << " : ";
+	affichage(key);
+
 	// XOR avec sous-clé
-	auto xor_seqD = seq48 * key;
-	list<sequence> list_seq({ xor_seqD.left(),xor_seqD.right() });
+	auto xor_seq_d = seq48 * key;
+	list<sequence> list_seq({ xor_seq_d.left(),xor_seq_d.right() });
 
 
 	//listSeq.push_back(xor_seqD.left());

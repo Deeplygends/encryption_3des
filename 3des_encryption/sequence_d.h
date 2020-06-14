@@ -128,7 +128,7 @@ ostream& operator<<(ostream& os, sequence_d<Size> seq) {
 		s += c;
 	}
 
-	os << s << endl;
+	os << s;
 	return os;
 }
 

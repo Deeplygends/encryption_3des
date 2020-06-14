@@ -43,22 +43,22 @@ void crypt::operator()(const string& file_in, const string& file_out) const
 		cout << seq << endl;
 
 		//1st round 3DES
-		auto des1 = cdes(seq);
 		cout << "1st DES : " << endl;
-		cout << seq << endl;
+		auto des1_seq = cdes(seq);
+		cout << "Resulting sequence : " << des1_seq << endl << endl;
 
 		//2nd round 3DES
-		auto des2 = ddes(des1);
 		cout << "2nd DES : " << endl;
-		cout << seq << endl;
+		auto des2_seq = ddes(des1_seq);
+		cout << "Resulting sequence : " << des2_seq << endl << endl;
 
 		//3rd round 3DES
-		seq = cdes(des2);
 		cout << "3rd DES : " << endl;
-		cout << seq << endl;
+		auto des3_seq = cdes(des2_seq);
+		cout << "Resulting sequence : " << des3_seq << endl << endl;
 
 		//write to file
-		write_file << seq;
+		write_file << des3_seq;
 	}
 	read_file.close();
 	write_file.close();

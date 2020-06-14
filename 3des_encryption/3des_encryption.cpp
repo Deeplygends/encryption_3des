@@ -2,14 +2,12 @@
 //
 
 #include <iostream>
+#include <filesystem>
 #include "sequence.h"
 #include "sequence_d.h"
 #include "helper.cpp"
-
 #include "f.h"
 #include "crypt.h"
-#include <string>
-
 #include "decrypt.h"
 
 using namespace std;
@@ -205,16 +203,28 @@ static void test_sequence_d()
 
 static void test_crypt()
 {
-	sequence_d<64> key1 = sequence_d<64>();
-	sequence_d<64> key2 = sequence_d<64>();
+	auto key1 = sequence_d<64>();
+	auto key2 = sequence_d<64>();
 	//key1.import_string("testtest");
 	cout << "Veuillez entrer les cles :" << endl;
 	cin >> key1;
 	cin >> key2;
-	cout << "key1 : " << key1;
-	cout << "key2 : " << key2;
-	crypt encryption = crypt(key1, key2);
-	decrypt decryption = decrypt(key1, key2);
-	encryption("A:\\Documents\\Dodo\\M2\\S2\\Cpp\\projet\\encryption_3des\\3des_encryption\\clear_text.txt", "A:\\Documents\\Dodo\\M2\\S2\\Cpp\\projet\\encryption_3des\\3des_encryption\\encrypted_text.txt");
-	decryption("A:\\Documents\\Dodo\\M2\\S2\\Cpp\\projet\\encryption_3des\\3des_encryption\\encrypted_text.txt", "A:\\Documents\\Dodo\\M2\\S2\\Cpp\\projet\\encryption_3des\\3des_encryption\\decrypted.txt");
+	cout << "key1 : " << key1 << endl;
+	cout << "key2 : " << key2 << endl;
+	auto encryption = crypt(key1, key2);
+	auto decryption = decrypt(key1, key2);
+
+	// encryption
+	cout << "===== BEGINNING OF ENCRYPTION =====" << endl;
+	string current_path = filesystem::current_path().u8string();
+	string plain_text_file = current_path + "\\clear_text.txt";
+	string encrypted_text_file = current_path + "\\encrypted_text.txt";
+	encryption(plain_text_file, encrypted_text_file);
+	cout << "===== END OF ENCRYPTION =====" << endl << endl;
+
+	// decryption
+	cout << "===== BEGINNING OF DECRYPTION =====" << endl;
+	string decrypted_text_file = current_path + "\\decrypted_text.txt";
+	decryption(encrypted_text_file, decrypted_text_file);
+	cout << "===== END OF DECRYPTION =====";
 }
