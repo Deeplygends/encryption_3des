@@ -10,6 +10,7 @@ des::des(const sequence_d<64>& key)
 
 sequence_d<64> des::operator()(sequence_d<64> seq_d) const
 {
+	//Définition du vecteur de permutation initial
 	vector<int> initial_perm{ 58, 50, 42, 34, 26, 18, 10, 2,
 							 60, 52, 44, 36, 28, 20, 12, 4,
 							 62, 54, 46, 38, 30, 22, 14, 6,
@@ -28,14 +29,20 @@ sequence_d<64> des::operator()(sequence_d<64> seq_d) const
 	for (auto i = 0; i < 16; i++)
 	{
 		// li-1 = round_seq_d.left() && ri-1 = round_seq_d.right()
+		//Application de F sur la partie droite de la séquence
 		auto seq_right = f_(round_seq_d.right());
+
+		//XOR entre le résultat de F et la partie Gauche de la séquence
 		auto round_seq = seq_right * round_seq_d.left();
+		
 		// round_seq = ri && ri-1 = round_seq_d.right() = li
-		//round_seq_d = sequence_d<64>(round_seq.sous_sequence(0, round_seq.size() / 2 - 1), round_seq.sous_sequence(round_seq.size() / 2, round_seq.size() - 1));
+		//Nouvelle séquence constitué de l'ancienne partie droite = Nouvelle partie gauche
+		//et la partie droite devient le résultat de la transformation ci-dessus;
 		round_seq_d = sequence_d<64>(round_seq_d.right(), round_seq);
 	}
 	auto swapped_seq_d = sequence_d<64>(round_seq_d.right(), round_seq_d.left());
 
+	//Effetue la permutation avant de retourner le résultat;
 	vector<int> initial_perm_inv{ 40,8,48,16,56,24,64,32,39,7,47,15,55,23,63,31,38,6,46,14,54,22,62,30,37,5,45,13,53,21,61,29,36,4,44,12,52,20,60,28,35,3,43,11,51,19,59,27,34,2,42,10,50,18,58,26,33,1,41,9,49,17,57,25 };
 	return permutation(swapped_seq_d, initial_perm_inv);
 }

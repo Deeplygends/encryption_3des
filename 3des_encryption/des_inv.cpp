@@ -28,10 +28,15 @@ sequence_d<64> des_inv::operator()(sequence_d<64> seq_d) const
 	for (auto i = 0; i < 16; i++)
 	{
 		// li-1 = round_seq_d.left() && ri-1 = round_seq_d.right()
+		//Application de F sur la partie droite de la séquence
 		auto seq_right = f_inv_(round_seq_d.right());
+
+		//XOR entre le résultat de F et la partie Gauche de la séquence
 		auto round_seq = seq_right * round_seq_d.left();
+		
 		// round_seq = ri && ri-1 = round_seq_d.right() = li
-		//round_seq_d = sequence_d<64>(round_seq.sous_sequence(0, round_seq.size() / 2 - 1), round_seq.sous_sequence(round_seq.size() / 2, round_seq.size() - 1));
+		//Nouvelle séquence constitué de l'ancienne partie droite = Nouvelle partie gauche
+		//et la partie droite devient le résultat de la transformation ci-dessus;
 		round_seq_d = sequence_d<64>(round_seq_d.right(), round_seq);
 	}
 	auto swapped_seq_d = sequence_d<64>(round_seq_d.right(), round_seq_d.left());
